@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>E2E Invest - Plataforma Financeira Premium</title>
+  <link rel="stylesheet" href="landing.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="e2e_favicon_32x32.png" />
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Ícones (FontAwesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="main-bg">
+    <!-- Header Sticky -->
+    <header class="header-bg" id="header">
+      <div class="logo-area">
+        <img src="e2e_favicon_32x32.png" alt="Logo E2E Invest" class="logo-circular" style="width: 72px; height: 72px; min-width: 72px; min-height: 72px;" />
+        <span class="logo-title">E2E Invest</span>
+      </div>
+      <nav class="nav-area">
+  <a id="btn-login" class="btn-login" href="index.html?acesso=ok">Login</a>
+  <a id="btn-cadastro" class="btn-cadastro" href="./index.html?acesso=ok&cadastro=1">Cadastrar-se</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <h1 class="hero-title fade-in-up delay-1">Invista no seu futuro <span class="hero-highlight">hoje</span></h1>
+        <h2 class="section-subtitle fade-in-up delay-2">A plataforma <span style="color:var(--green-neon);font-weight:bold;">mais confiável</span> do Brasil, com segurança, agilidade e tecnologia de ponta.</h2>
+        <div class="hero-btns fade-in-up delay-4" style="justify-content:center; display:flex; gap:18px;">
+          <button class="btn" onclick="scrollToSection('principais-ativos-b3')">Conheça a plataforma</button>
+          <a class="btn-cadastro" id="btn-abrir-conta-hero" href="./index.html?acesso=ok&cadastro=1">Abrir Conta</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="mockup-animated fade-in-up delay-2">
+          <video src="mockup_celular.mp4" alt="Mockup de celular com gráfico" autoplay muted loop playsinline style="width:350px;height:490px;display:block;margin:0 auto;border-radius:18px;box-shadow:0 0 24px #a259ff44;object-fit:cover;"></video>
+        </div>
+      </div>
+    </section>
+
+      <!-- B3 Asset Carousel Animation -->
+      <section class="section-b3-carousel">
+  <h2 class="section-title" id="principais-ativos-b3" style="text-align:center;margin-bottom:12px;">Principais Ativos da B3</h2>
+        <div class="b3-carousel-wrapper">
+          <div class="b3-carousel-track b3-carousel-track-1">
+            <!-- Ativos B3 - duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+            <!-- Duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+          </div>
+          <div class="b3-carousel-track b3-carousel-track-2">
+            <div class="b3-asset-card">
+              <img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/VALE3.png" alt="VALE3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/USIM5.png" alt="USIM5" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/RADL3.png" alt="RADL3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/PETR4.png" alt="PETR4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/LREN3.png" alt="LREN3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div>
+            </div>
+            <!-- Repete para efeito infinito -->
+            <!-- Ativos B3 - duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+            <!-- Duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Tour da Plataforma -->
+    <section class="section-tour" id="tour">
+      <h2 class="section-title">Tour pela Plataforma</h2>
+      <p class="section-subtitle">Veja como é fácil investir, acompanhar e crescer com a E2E Invest.</p>
+           <video src="tour-demo.mp4" alt="Tour da Plataforma" autoplay muted loop playsinline style="max-width:600px;width:100%;display:block;margin:0 auto;border-radius:12px;box-shadow:0 0 24px #a259ff44;"></video>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="section-diferenciais">
+      <h2 class="section-title">Por que escolher a E2E Invest?</h2>
+      <div class="diferenciais-list">
+        <div class="diferencial-item">
+          <i class="fas fa-shield-alt diferencial-icon"></i>
+          <h3>Segurança Bancária</h3>
+          <p>Proteção de dados e transações com criptografia de ponta.</p>
+        </div>
+        <div class="diferencial-item">
+          <i class="fas fa-bolt diferencial-icon"></i>
+          <h3>Tecnologia de Ponta</h3>
+          <p>Infraestrutura robusta, rápida e sempre disponível.</p>
+        </div>
+        <div class="diferencial-item">
+          <i class="fas fa-chart-line diferencial-icon"></i>
+          <h3>Gráficos ao Vivo</h3>
+          <p>Acompanhe o mercado em tempo real e tome decisões rápidas.</p>
+        </div>
+        <div class="diferencial-item">
+          <i class="fas fa-rocket diferencial-icon"></i>
+          <h3>Agilidade</h3>
+          <p>Abra sua conta e invista em minutos, sem burocracia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="section-como-funciona">
+      <h2 class="section-title">Como Funciona</h2>
+      <div class="como-funciona-list">
+        <div class="como-funciona-item">
+          <div class="como-funciona-num">1</div>
+          <h3>Cadastro Rápido</h3>
+          <p>Preencha seus dados e crie sua conta em poucos minutos.</p>
+        </div>
+        <div class="como-funciona-item">
+          <div class="como-funciona-num">2</div>
+          <h3>Deposite</h3>
+          <p>Transfira recursos de forma segura para sua conta E2E Invest.</p>
+        </div>
+        <div class="como-funciona-item">
+          <div class="como-funciona-num">3</div>
+          <h3>Invista</h3>
+          <p>Escolha entre diversas opções e acompanhe seus rendimentos.</p>
+        </div>
+        <div class="como-funciona-item">
+          <div class="como-funciona-num">4</div>
+          <h3>Acompanhe</h3>
+          <p>Veja gráficos, relatórios e receba suporte sempre que precisar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prova Social -->
+    <section class="section-prova-social">
+      <h2 class="section-title">Confiança de quem entende</h2>
+      <div class="prova-social-selos">
+        <span class="prova-social-selo">B3</span>
+        <span class="prova-social-selo">Anbima</span>
+        <span class="prova-social-selo">Certificação ISO</span>
+      </div>
+      <div class="prova-social-carousel-wrapper">
+        <div class="prova-social-carousel-track">
+          <div class="prova-social-depoimento">
+            <div class="prova-social-estrelas">★★★★★</div>
+            “A plataforma mais intuitiva e segura que já usei!”<br><b>- Camila, SP</b>
+          </div>
+          <div class="prova-social-depoimento">
+            <div class="prova-social-estrelas">★★★★★</div>
+            “Atendimento rápido e gráficos incríveis.”<br><b>- João, RJ</b>
+          </div>
+          <div class="prova-social-depoimento">
+            <div class="prova-social-estrelas">★★★★★</div>
+            “Me sinto em um banco digital de verdade!”<br><b>- Renata, MG</b>
+          </div>
+          <!-- Duplicados para efeito contínuo -->
+          <div class="prova-social-depoimento">
+            <div class="prova-social-estrelas">★★★★★</div>
+            “A plataforma mais intuitiva e segura que já usei!”<br><b>- Camila, SP</b>
+          </div>
+          <div class="prova-social-depoimento">
+            <div class="prova-social-estrelas">★★★★★</div>
+            “Atendimento rápido e gráficos incríveis.”<br><b>- João, RJ</b>
+          </div>
+          <div class="prova-social-depoimento">
+            <div class="prova-social-estrelas">★★★★★</div>
+            “Me sinto em um banco digital de verdade!”<br><b>- Renata, MG</b>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-faq">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">A E2E Invest é segura?</div>
+          <div class="faq-answer">Sim! Utilizamos criptografia bancária e seguimos as normas da B3 e Anbima.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Preciso pagar para abrir conta?</div>
+          <div class="faq-answer">Não. A abertura de conta é 100% gratuita e sem mensalidade.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Posso investir pelo celular?</div>
+          <div class="faq-answer">Sim! Nossa plataforma é responsiva e funciona em qualquer dispositivo.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Como funciona o suporte?</div>
+          <div class="faq-answer">Você conta com atendimento humano e rápido via chat, e-mail ou telefone.</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Rodapé -->
+    <footer class="footer-bg">
+      © 2025 E2E Invest Code Brokers - Todos os direitos reservados.<br>
+      <span style="color:#00ffa3; font-weight:600;">Desenvolvido por: Heraldo, Bruno, Fernanda, Hugo, Samuel, Uriel</span>
+    </footer>
+  </div>
+
+  <!-- JS para partículas, header sticky, scroll suave, FAQ -->
+  <script src="landing.js"></script>
+  <script>
+    // Removido: agora os botões são <a> com href direto para index.html?acesso=ok
+  </script>
+  <style>
+    .login-highlight {
+      box-shadow: 0 0 0 4px var(--green-neon, #00ffb3), 0 0 24px #00ffb399;
+      transition: box-shadow 0.3s;
+    }
+    /* Botões landing iguais ao dashboard: verde para comprar, vermelho para vender */
+    .btn-verde {
+      background: linear-gradient(90deg,#00ffa3 60%,#00cfff 100%) !important;
+      color: #181c2f !important;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #00ffa344;
+      font-size: 1.13rem;
+      padding: 14px 0;
+      width: 100%;
+      min-width: 180px;
+      max-width: 320px;
+      margin: 0 8px;
+      transition: filter 0.2s, background 0.2s, color 0.2s;
+      cursor: pointer;
+      outline: none;
+    }
+    .btn-verde:hover {
+      background: linear-gradient(90deg,#00cfff 0%,#00ffa3 100%) !important;
+      color: #fff !important;
+      filter: brightness(1.08);
+    }
+    .btn-vermelho {
+      background: linear-gradient(90deg,#ff4c4c 60%,#ff0000 100%) !important;
+      color: #fff !important;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #ff4c4c44;
+      font-size: 1.13rem;
+      padding: 14px 0;
+      width: 100%;
+      min-width: 180px;
+      max-width: 320px;
+      margin: 0 8px;
+      transition: filter 0.2s, background 0.2s, color 0.2s;
+      cursor: pointer;
+      outline: none;
+    }
+    .btn-vermelho:hover {
+      background: linear-gradient(90deg,#ff0000 0%,#ff4c4c 100%) !important;
+      color: #fff !important;
+      filter: brightness(1.08);
+    }
+  </style>
+</body>
+</html>

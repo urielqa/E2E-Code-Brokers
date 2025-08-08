@@ -1,0 +1,1320 @@
+.tf-dropdown {
+  position: relative;
+  min-width: 170px;
+  font-family: inherit;
+  z-index: 10;
+}
+.tf-btn {
+  width: 100%;
+  background: #232a3d;
+  color: #fff;
+  border: 1.5px solid #232a3d;
+  border-radius: 12px;
+  padding: 12px 38px 12px 14px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px #0006;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tf-btn:hover, .tf-dropdown.open .tf-btn {
+  border-color: #00ffa3;
+  box-shadow: 0 0 0 2px #00ffa344, 0 2px 12px #00ffa344;
+}
+.tf-btn svg {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.tf-dropdown.open .tf-btn svg {
+  transform: rotate(180deg);
+}
+.tf-list {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #232a3d;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px #000a, 0 0 0 2px #00ffa344;
+  z-index: 20;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  max-height: 340px;
+  overflow-y: auto;
+}
+.tf-dropdown.open .tf-list {
+  display: block;
+}
+.tf-list li {
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1.04rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: background 0.18s, color 0.18s;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tf-list li:hover:not(.tf-group), .tf-list li.selected {
+  background: #181c2f;
+  color: #00ffa3;
+}
+.tf-list .tf-group {
+  color: #00ffa3;
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 7px 18px 3px 18px;
+  cursor: default;
+  background: none;
+  border-radius: 0;
+  letter-spacing: 1px;
+}
+@media (max-width: 700px) {
+  .tf-dropdown {
+    min-width: 120px;
+    font-size: 0.98rem;
+  }
+  .tf-btn {
+    font-size: 0.98rem;
+    padding: 10px 32px 10px 10px;
+  }
+  .tf-list li, .tf-list .tf-group {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #graficoSection > div > div {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+}
+/* Dropdown customizado de timeframe (Análise Técnica) */
+.tf-dropdown {
+  position: relative;
+  min-width: 170px;
+  font-family: inherit;
+}
+.tf-btn {
+  width: 100%;
+  background: #232a3d;
+  color: #fff;
+  border: 1.5px solid #232a3d;
+  border-radius: 12px;
+  padding: 12px 38px 12px 14px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px #0006;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tf-btn:hover, .tf-dropdown.open .tf-btn {
+  border-color: #00ffa3;
+  box-shadow: 0 0 0 2px #00ffa344, 0 2px 12px #00ffa344;
+}
+.tf-btn svg {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.tf-dropdown.open .tf-btn svg {
+  transform: rotate(180deg);
+}
+.tf-list {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #232a3d;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px #000a, 0 0 0 2px #00ffa344;
+  z-index: 10;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  max-height: 340px;
+  overflow-y: auto;
+}
+.tf-dropdown.open .tf-list {
+  display: block;
+}
+.tf-list li {
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1.04rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: background 0.18s, color 0.18s;
+  border-radius: 8px;
+}
+.tf-list li:hover:not(.tf-group), .tf-list li.selected {
+  background: #181c2f;
+  color: #00ffa3;
+}
+.tf-list .tf-group {
+  color: #00ffa3;
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 7px 18px 3px 18px;
+  cursor: default;
+  background: none;
+  border-radius: 0;
+  letter-spacing: 1px;
+}
+@media (max-width: 600px) {
+  .tf-dropdown, .tf-btn, .tf-list {
+    min-width: 120px;
+    font-size: 0.98rem;
+  }
+  .tf-list li, .tf-list .tf-group {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@import url('export-dropdown.css');
+@import url('timeframe-dropdown.css');
+/* Botão padrão (ex: Transferir) - mesmo tamanho dos botões de voltar */
+.btn-padrao {
+  width: 100%;
+  min-width: 220px;
+  max-width: 420px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.18rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.2px !important;
+  border-radius: 14px !important;
+  padding: 0 !important;
+}
+/* Botão de ação gráfico (voltar ao dashboard) vermelho igual ao vender */
+/* Botão de ação gráfico (voltar ao dashboard) verde igual ao de transferência */
+.btn-acao.btn-graficos {
+  background: linear-gradient(90deg, #00ffa3 60%, #00cfff 100%) !important;
+  color: #181c2f !important;
+  border: none !important;
+  border-radius: 14px !important;
+  font-weight: 700 !important;
+  font-size: 1.18rem !important;
+  letter-spacing: 1.2px !important;
+  box-shadow: 0 0 15px #00ffa344, 0 0 2px #00cfff !important;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1) !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+.btn-acao.btn-graficos:hover {
+  background: linear-gradient(90deg, #00cfff 0%, #00ffa3 100%) !important;
+  color: #fff !important;
+  transform: scale(1.07);
+  box-shadow: 0 0 30px #00ffa3, 0 0 8px #00cfff !important;
+  filter: brightness(1.1);
+}
+/* Botão de voltar (usado em transferência, etc) - vermelho igual ao vender */
+.btn-voltar {
+  background: linear-gradient(90deg, #ff3c3c 0%, #ff0000 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 14px !important;
+  font-weight: 700 !important;
+  font-size: 1.18rem !important;
+  letter-spacing: 1.2px !important;
+  box-shadow: 0 0 15px #ff3c3c, 0 0 2px #ff0000 !important;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1) !important;
+  outline: none !important;
+  cursor: pointer !important;
+}
+.btn-voltar:hover {
+  background: linear-gradient(90deg, #ff0000 0%, #ff3c3c 100%) !important;
+  color: #fff !important;
+  transform: scale(1.07);
+  box-shadow: 0 0 30px #ff3c3c, 0 0 8px #ff0000 !important;
+  filter: brightness(1.1);
+}
+#boletaGraficoContainer .boleta-botoes {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+}
+#boletaGraficoContainer .btn-venda,
+#boletaGraficoContainer .btn-grafico-voltar,
+#transferenciaContainer .btn-transferencia-voltar {
+    background: linear-gradient(90deg, #ff3c3c 0%, #ff0000 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.15);
+    margin-left: 16px;
+}
+#boletaGraficoContainer .btn-venda:hover,
+#boletaGraficoContainer .btn-grafico-voltar:hover,
+#transferenciaContainer .btn-transferencia-voltar:hover {
+    background: linear-gradient(90deg, #ff0000 0%, #ff3c3c 100%);
+    box-shadow: 0 4px 16px rgba(255, 0, 0, 0.25);
+}
+  background: linear-gradient(90deg,#00cfff 0%,#00ffa3 100%) !important;
+  color: #fff !important;
+  filter: brightness(1.08);
+}
+#boletaGraficoContainer .btn-venda {
+  background: linear-gradient(90deg,#ff4c4c 60%,#ff0000 100%) !important;
+  color: #fff !important;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #ff4c4c44;
+  font-size: 1.13rem;
+  padding: 14px 0;
+  width: 100%;
+  min-width: 180px;
+  max-width: 320px;
+  transition: filter 0.2s, background 0.2s, color 0.2s;
+  cursor: pointer;
+  outline: none;
+}
+#boletaGraficoContainer .btn-venda:hover {
+  background: linear-gradient(90deg,#ff0000 0%,#ff4c4c 100%) !important;
+  color: #fff !important;
+  filter: brightness(1.08);
+}
+/* Boleta do gráfico igual à boleta do dashboard */
+#boletaGraficoContainer select,
+#boletaGraficoContainer input[type="number"],
+#boletaGraficoContainer input[type="text"],
+#boletaGraficoContainer input[type="email"],
+#boletaGraficoContainer input[type="password"],
+#boletaGraficoContainer input[type="tel"] {
+  width: 100%;
+  padding: 12px 10px;
+  border-radius: 12px;
+  border: 1.5px solid #232a3d;
+  background: #232a3d;
+  color: #fff;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border 0.2s;
+}
+#boletaGraficoContainer select:focus,
+#boletaGraficoContainer input[type="number"]:focus,
+#boletaGraficoContainer input[type="text"]:focus,
+#boletaGraficoContainer input[type="email"]:focus,
+#boletaGraficoContainer input[type="password"]:focus,
+#boletaGraficoContainer input[type="tel"]:focus {
+  border-color: #00ffa3;
+}
+/* Botão Comprar da boleta do gráfico */
+#boletaGraficoContainer .btn-compra {
+#boletaGraficoContainer .btn-grafico-voltar {
+  width: 100%;
+  min-width: 220px;
+  max-width: 320px;
+  background: linear-gradient(90deg,#ff3c3c 0%,#ff0000 100%) !important;
+  color: #fff !important;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 0;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 12px #ff4c4c44;
+  cursor: pointer;
+  transition: filter 0.2s, background 0.2s;
+  margin-bottom: 12px;
+}
+#boletaGraficoContainer .btn-grafico-voltar:hover {
+  background: linear-gradient(90deg,#ff0000 0%,#ff3c3c 100%) !important;
+  color: #fff !important;
+  filter: brightness(1.08);
+}
+  width: 100%;
+  min-width: 220px;
+  max-width: 320px;
+  background: linear-gradient(90deg,#00ffa3 60%,#00cfff 100%) !important;
+  color: #181c2f !important;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 0;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 12px #00ffa344;
+  cursor: pointer;
+  transition: filter 0.2s, background 0.2s;
+  margin-bottom: 12px;
+}
+#boletaGraficoContainer .btn-compra:hover {
+  background: linear-gradient(90deg,#00cfff 0%,#00ffa3 100%) !important;
+  color: #fff !important;
+  filter: brightness(1.08);
+}
+#boletaGraficoContainer .btn-venda {
+  width: 100%;
+  min-width: 220px;
+  max-width: 320px;
+  background: linear-gradient(90deg,#ff4c4c 60%,#ff0000 100%) !important;
+  color: #fff !important;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 0;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 12px #ff4c4c44;
+  cursor: pointer;
+  transition: filter 0.2s, background 0.2s;
+  margin-bottom: 12px;
+}
+#boletaGraficoContainer .btn-venda:hover {
+  background: linear-gradient(90deg,#ff0000 0%,#ff4c4c 100%) !important;
+  color: #fff !important;
+  filter: brightness(1.08);
+}
+/* Títulos dos gráficos ApexCharts - máximo destaque */
+.apexcharts-title-text {
+  font-size: 2.2rem !important;
+  font-weight: 900 !important;
+  color: #00ffa3 !important;
+  text-shadow: 0 0 12px #00ffa355, 0 0 2px #181c1f;
+  letter-spacing: 2px;
+  margin-bottom: 18px !important;
+  opacity: 1 !important;
+}
+/* Realce de erro para inputs da boleta */
+.input-erro {
+  border: 2px solid #ff4c4c !important;
+  background: #fff0f0 !important;
+  color: #ff0000 !important;
+  box-shadow: 0 0 6px #ff4c4c44;
+}
+/* ===== Scroll fixo para Extrato de Operações e Book de Ordens ===== */
+.scrollable-extrato-align, .scrollable-ordens-align {
+  max-height: 260px; /* Altura fixa para área de operações/ordens */
+  overflow-y: auto;
+  border-radius: 8px;
+  width: 100%;
+}
+/* ===== Fim do scroll fixo Extrato/Ordens ===== */
+/* ===== Layout Carteira e Book lado a lado, ambos com scroll ===== */
+/* ===== Layout Carteira e Book lado a lado, ambos com scroll fixo ===== */
+.dashboard-row-align {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1400px; /* Alterado para 1400px conforme solicitado */
+  margin: 0 auto 32px auto;
+}
+.card-carteira-align, .card-book-align {
+  flex: 1 1 0;
+  min-width: 340px;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 320px; /* Tamanho fixo para ambas as colunas */
+}
+.scrollable-carteira-align, .scrollable-book-align {
+  flex: 1 1 auto;
+  max-height: 260px; /* Altura interna para scroll, ajustável */
+  overflow-y: auto;
+  border-radius: 8px;
+}
+/* ===== Fim do layout alinhado fixo ===== */
+/* ===== Fim do layout alinhado ===== */
+/* ===== Scroll fixo para tabela da Carteira ===== */
+.scrollable-carteira-align {
+  max-height: 260px; /* Altura fixa para área de ativos */
+  overflow-y: auto;
+  border-radius: 8px;
+  width: 100%;
+  /* Garante que a tabela nunca ultrapasse esse espaço */
+}
+/* ===== Fim do scroll fixo Carteira ===== */
+/* Container para alinhar nome e premium lado a lado, premium levemente acima */
+/* Flex container para logo + nome + premium */
+.user-info-flex {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.username-premium {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 10px;
+}
+.username-premium .username {
+  font-size: 2.1em;
+  color: #00ffa3;
+  font-weight: bold;
+  line-height: 1.1;
+}
+.username-premium .premium-badge {
+  position: relative;
+  top: 0;
+  font-size: 1em;
+  padding: 4px 16px;
+  border-radius: 10px;
+  background: #1c1c1c;
+  color: #00ffa3;
+  font-weight: 700;
+  box-shadow: 0 0 6px rgba(0,255,179,0.3);
+  letter-spacing: 0.7px;
+  border: 2px solid #00ffa3;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+/* Selo Premium ao lado do nome do usuário */
+.premium-badge {
+  display: inline-block;
+  background: #23272f;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-left: 10px;
+  vertical-align: middle;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+  letter-spacing: 0.5px;
+}
+/* --- TradingView Lightweight Charts --- */
+/* Gráfico de Análise Técnica - maior e com títulos visíveis */
+/* Gráfico de Análise Técnica - largura maior e espaço inferior para títulos */
+/* Gráfico de Análise Técnica e Boleta alinhados com campo de ativos */
+#chartContainer, .tvchart, .card-boleta {
+  width: 100%;
+  max-width: 1400px;
+  min-width: 340px;
+  margin: 0 auto 32px auto;
+  background: #181c20;
+  border-radius: 12px;
+  box-shadow: 0 0 32px #00ffa3, 0 0 8px #00b97b;
+}
+#chartContainer {
+  min-height: 520px;
+  height: 68vh;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 32px;
+  padding-bottom: 48px; /* Espaço extra para títulos */
+}
+.tvchart {
+  height: 520px;
+  min-height: 420px;
+  margin-bottom: 24px; /* Espaço para títulos */
+}
+.card-boleta {
+  padding: 36px 32px 32px 32px;
+}
+.grafico-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+@media (max-width: 600px) {
+  #chartContainer, .tvchart {
+    height: 320px;
+    min-height: 220px;
+  }
+}
+/* Cores para efeito piscante no Book de Ofertas */
+.book-preco.alta, .book-variacao.alta {
+  color: #00ff99 !important;
+}
+.book-preco.baixa, .book-variacao.baixa {
+  color: #ff4d4d !important;
+}
+.book-preco.neutra, .book-variacao.neutra {
+  color: #cccccc !important;
+}
+
+/* Efeito de fundo piscante já é feito via JS, mas pode reforçar contraste: */
+.book-preco, .book-variacao {
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Para modo escuro, manter contraste */
+#book td {
+  background: #181818;
+}
+/* Deixa os logos redondos nas telas de loading, login e cadastro */
+
+
+
+#redirectSection img,
+#loaderSplash img,
+.logo,
+.logo-circular,
+img.logo,
+img.logo-circular {
+  width: 120px !important;
+  height: 120px !important;
+  max-width: 160px;
+  max-height: 160px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: linear-gradient(145deg, #7b00ff, #a100ff);
+  box-shadow: 0 0 22px #00ffa3, 0 0 0 6px #181c20;
+  border: 3px solid #00ffa3;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+
+/* Layout coluna combinada Book + Boleta */
+.col-book-boleta {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1 1 auto;
+  min-width: 340px;
+  /* Removido max-height para crescer conforme o conteúdo */
+}
+.card-book {
+  margin-bottom: 0;
+  /* height: auto; */
+  /* min-height: 0; */
+}
+.card-boleta {
+  margin-top: 0;
+  /* height: auto; */
+  /* min-height: 0; */
+}
+.boleta-botoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+.btn-compra {
+  background: #00ffa3;
+  color: #222;
+  font-weight: bold;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-compra:hover {
+  background: #00cc7a;
+}
+.btn-venda {
+  background: #ff3c3c;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-venda:hover {
+  background: #c70000;
+}
+/* Efeito de destaque para linha do book de ofertas */
+/* Efeito piscante para linha inteira do book */
+.linha-destaque {
+  animation: destaqueBook 0.6s;
+  background: linear-gradient(90deg, #00ffa3 20%, #222 100%);
+}
+
+@keyframes destaqueBook {
+  0% { background: #00ffa3; color: #222; }
+  50% { background: #222; color: #00ffa3; }
+  100% { background: inherit; color: inherit; }
+}
+
+#book tr.linha-destaque td {
+  background: transparent !important;
+}
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Estilos Gerais ===== */
+body {
+  background-color: #0e1013;
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ===== Cartões de Seção ===== */
+.card {
+  background-color: #1a1d22;
+  padding: 30px;
+  margin-bottom: 30px;
+  align-items: stretch;
+  box-shadow: 0 0 15px rgba(0, 255, 160, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 160, 0.15);
+}
+
+/* ===== Destaque visual nos containers principais ===== */
+.card,
+.card-carteira-align,
+.card-book-align,
+.card-boleta,
+.card-book,
+.scrollable-extrato-align,
+.scrollable-ordens-align {
+  box-shadow: 0 0 12px rgba(0, 255, 180, 0.1); /* Sombra suave neon para destaque */
+}
+
+/* ===== Espaçamento interno maior nos cards da Carteira ===== */
+.card-carteira-align {
+  padding: 36px 32px 32px 32px; /* Espaçamento generoso nos blocos de ativos */
+}
+
+/* ===== Tipografia ===== */
+h2, h3 {
+  color: #00ffa3 !important;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-shadow: 0 0 6px #00ffa355, 0 0 1px #181c1f;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: inherit;
+}
+
+/* ===== Inputs e Selects ===== */
+input, select {
+  width: 100%;
+  padding: 12px;
+  background: #111418;
+  color: #ffffff;
+  border: 1px solid #2c3038;
+  border-radius: 8px;
+  margin-top: 5px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #00ffa3;
+  box-shadow: 0 0 5px #00ffa3aa;
+}
+
+/* ===== Botões ===== */
+
+button, .btn, .btn-login, .btn-cadastro {
+  background: linear-gradient(145deg, #7b00ff, #a100ff); /* Cor de fundo com gradiente roxo */
+  color: #e43939; /* Cor do texto */
+  border: none;
+  padding: 12px 32px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #9b00ff, 0 0 2px #00ffa3; /* Sombra roxa e verde neon */
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1); /* Efeito de transição suave */
+  letter-spacing: 1px;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  margin-left: 12px;
+  margin-top: 10px;
+}
+
+button:hover, .btn:hover, .btn-login:hover, .btn-cadastro:hover {
+  background: linear-gradient(145deg, #a100ff, #00ffa3); /* Gradiente muda para roxo e verde neon */
+  color: #fff;
+  transform: scale(1.07); /* Efeito de aumento ao passar o mouse */
+  box-shadow: 0 0 30px #c700ff, 0 0 8px #00ffa3; /* Sombra mais intensa */
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Botões secundários com onclick específico */
+button[onclick*="mostrarCadastro"],
+button[onclick*="mostrarLogin"],
+button[onclick*="esqueciSenha"] {
+  background: transparent;
+  color: #ccc;
+  border: 1px solid #333;
+  margin-top: 5px;
+}
+
+button[onclick*="mostrarCadastro"]:hover,
+button[onclick*="mostrarLogin"]:hover,
+button[onclick*="esqueciSenha"]:hover {
+  color: #00ffa3;
+  border-color: #00ffa3;
+}
+
+/* ===== Mensagens ===== */
+.mensagem {
+  margin-top: 10px;
+  color: #ff5050;
+}
+
+.success {
+  color: #00ff99;
+}
+
+/* ===== Utilitários ===== */
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ===== Tabelas ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+/* Linha inferior neon para tabela do Extrato de Operações */
+#extratoOperacoes tr:last-child td {
+  border-bottom: 3px solid #00f0b5d9;
+  box-shadow: 0 2px 8px 0 #00f0b52e;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+table thead {
+  background-color: #20252b;
+}
+
+table th, table td {
+  padding: 10px;
+  border-bottom: 1px solid #00f0b5d9
+  text-align: left;
+}
+
+/* ===== Book de Ofertas (B3) e Livro de Ofertas Completo - Visual Profissional ===== */
+#book, #bookCompleto {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#book th, #book td,
+#bookCompleto th, #bookCompleto td {
+  padding: 4px 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+#book th, #bookCompleto th {
+  background: #222;
+  color: #00ffa3;
+  font-weight: bold;
+}
+
+#book td, #bookCompleto td {
+  background: #181a1f;
+  border-bottom: 1px solid #222;
+}
+
+#book td:nth-child(5),
+#bookCompleto td:nth-child(4),
+#bookCompleto td:nth-child(5) {
+  font-weight: bold;
+}
+
+#book td:nth-child(5) {
+  color: #00ffa3;
+}
+
+#bookCompleto td:nth-child(4) {
+  color: #ffffff;
+  background: #142b3b;
+}
+
+#bookCompleto td:nth-child(5) {
+  color: #ff4444;
+  background: #3b1414;
+}
+
+#book tr:hover, #bookCompleto tr:hover {
+  background: #23272e;
+}
+
+.scrollable {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* ===== Loader ===== */
+#loader {
+  color: #00ffa3;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+
+/* ===== Estilo moderno para Login / Cadastro ===== */
+#loginSection,
+#cadastroSection {
+  background: #181818;
+  border: 1px solid #333;
+  box-shadow: 0 0 15px rgba(108, 0, 185, 0.3);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 450px;
+  margin: auto;
+}
+
+#loginSection label,
+#cadastroSection label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #ddd;
+}
+
+#loginSection input,
+#cadastroSection input {
+  background-color: #232a3d;
+  border: 1px solid #555;
+  color: #fff;
+  transition: 0.3s;
+}
+
+#loginSection input:focus,
+#cadastroSection input:focus {
+  border-color: #00ffa3;
+  box-shadow: 0 0 5px #6c00b9aa;
+}
+
+
+#loginSection button,
+#cadastroSection button,
+#loginSection button {
+  background: linear-gradient(90deg, #8e7fff 60%, #6c4cff 100%);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  width: 100%;
+  padding: 16px 0;
+  margin-top: 15px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #8e7fff44;
+  font-size: 1.18rem;
+  letter-spacing: 1px;
+  transition: filter 0.2s, background 0.2s, transform 0.2s;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+#cadastroSection button:hover,
+#loginSection button:hover {
+  background: linear-gradient(90deg, #6c4cff 0%, #8e7fff 100%);
+  color: #fff;
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 0 36px #8e7fff, 0 0 12px #6c4cff;
+  filter: brightness(1.08) drop-shadow(0 0 16px #6c4cffcc);
+  cursor: pointer;
+}
+
+#loginSection button[onclick*="mostrarCadastro"],
+#cadastroSection button[onclick*="mostrarLogin"],
+#loginSection button[onclick*="esqueciSenha"] {
+  background: transparent;
+  border: 1px solid #6c00b9;
+  color: #c6b5ff;
+  margin-top: 10px;
+}
+
+#loginSection button[onclick*="mostrarCadastro"]:hover,
+#cadastroSection button[onclick*="mostrarLogin"]:hover,
+#loginSection button[onclick*="esqueciSenha"]:hover {
+}
+
+/* ===== Botão vermelho Cancelar com tom suave e hover ===== */
+.btn-cancelar {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.btn-cancelar:hover {
+  filter: brightness(1.1);
+}
+
+/* ===== Animação de hover nos ícones do cabeçalho superior ===== */
+.header-buttons .btn-acao,
+.header-buttons .btn-graficos,
+.header-buttons .btn-sair {
+  transition: transform 0.2s, filter 0.2s;
+}
+.header-buttons .btn-acao:hover,
+.header-buttons .btn-graficos:hover,
+.header-buttons .btn-sair:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 15px auto;
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ffa3;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 900px) {
+  .container {
+    max-width: 100vw;
+    padding: 5px;
+  }
+  .card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+  table th, table td {
+    padding: 6px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Sugestões de melhorias extras ===== */
+/* 1. Adicione animação para saldo mudando */
+#saldo {
+  transition: color 0.3s, font-size 0.3s;
+}
+#saldo.saldo-up {
+  color: #00ff99;
+  font-size: 1.3em;
+}
+#saldo.saldo-down {
+  color: #ff5050;
+  font-size: 1.3em;
+}
+
+/* 2. Adicione destaque para ordens pendentes */
+#ordens td:last-child button {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#ordens td:last-child button:hover {
+  background: #c60000;
+}
+
+/* 3. Adicione efeito de hover nos cards */
+.card:hover {
+  box-shadow: 0 0 25px rgba(0,255,160,0.18);
+  transform: translateY(-2px) scale(1.01);
+}
+/* ===== Animações de variação de preço ===== */
+.book-preco.alta {
+  color: #00ff99;
+  font-weight: bold;
+  animation: piscaVerde 0.5s ease-in-out;
+}
+
+.book-preco.baixa {
+  color: #ff4d4d;
+  font-weight: bold;
+  animation: piscaVermelho 0.5s ease-in-out;
+}
+
+@keyframes piscaVerde {
+  0%   { background-color: transparent; }
+  50%  { background-color: #52d39f; }
+  100% { background-color: transparent; }
+}
+
+@keyframes piscaVermelho {
+  0%   { background-color: transparent; }
+  50%  { background-color: #af3d3d; }
+  100% { background-color: transparent; }
+}
+
+/* Sparkline SVG na Carteira: cor mais escura para linha */
+.card-carteira-align svg polyline,
+.scrollable-carteira-align svg polyline {
+  stroke: #005a7a !important;
+}
+
+/* ===== Barra Superior (Header) ===== */
+.header-portal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 24px auto;
+  padding: 18px 32px;
+  background: #181c1f;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.username {
+  margin-left: 16px;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #00ffa3;
+  display: flex;
+  align-items: center;
+}
+
+.saldo-bloco {
+  background: #1c1c1c;
+  border-radius: 10px;
+  padding: 8px 16px;
+  margin: 0 24px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 6px rgba(0,255,179,0.3);
+  font-size: 1.1rem;
+  font-weight: 500;
+  border: 2px solid #00ffa3;
+  color: #00ffa3;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.saldo-bloco .label {
+  margin-right: 8px;
+  color: #00ffa3;
+  font-weight: bold;
+}
+.saldo-bloco .valor {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 16px;
+}
+.btn-acao {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  background-color: #00ffb3;
+  box-shadow: 0 0 6px rgba(0,255,179,0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+  padding: 0;
+  outline: none;
+}
+.btn-acao svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  fill: #181c1f;
+}
+.btn-acao:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0,255,179,0.4);
+}
+.btn-graficos {
+  background-color: #00ffb3;
+  box-shadow: 0 0 6px rgba(0,255,179,0.3);
+}
+.btn-graficos svg {
+  fill: #181c1f;
+}
+.btn-graficos:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0,255,179,0.4);
+}
+
+
+.btn-sair {
+  background-color: #ff4d4d;
+  box-shadow: 0 0 6px rgba(255,77,77,0.3);
+}
+.btn-sair svg {
+  fill: #fff;
+}
+.btn-sair:hover {
+  background: linear-gradient(145deg, #ff4d4d, #ff2a2a);
+  transform: scale(1.07);
+  box-shadow: 0 0 36px #00ffa3, 0 0 16px #ff2a2a;
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Botões de ação com ícones SVG centralizados */
+
+
+.header-buttons .btn-acao,
+.header-buttons .btn-graficos {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #00ffa3, #00b97b); /* Verde neon gradiente */
+  box-shadow: 0 0 15px #00ffa3, 0 0 2px #00b97b;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1);
+  padding: 0;
+  outline: none;
+}
+.header-buttons .btn-acao svg,
+.header-buttons .btn-graficos svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+  fill: #181c1f;
+}
+.header-buttons .btn-acao:hover,
+.header-buttons .btn-graficos:hover {
+  background: linear-gradient(145deg, #00b97b, #00ffa3);
+  transform: scale(1.07);
+  box-shadow: 0 0 30px #00ffa3, 0 0 8px #00b97b;
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Botão de ação para sair (logout) */
+.btn-sair {
+  background-color: #181c1f;
+  box-shadow: 0 0 4px rgba(255,77,77,0.4), 0 0 8px rgba(255,77,77,0.2);
+}
+.btn-sair svg {
+  fill: #181c1f;
+}
+.btn-sair:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(255,77,77,0.5), 0 0 16px rgba(255,77,77,0.25);
+}
+
+/* Botão de Transferência e Gráfico - estilo grande e padrão do cabeçalho */
+
+/* Botão de Transferência e Voltar - estilo grande e verde neon padrão do cabeçalho */
+/* Botões grandes padrão verde neon igual ao cabeçalho, só muda tamanho */
+/* Botões grandes de voltar e transferência seguem o padrão visual do sistema */
+/* Botões grandes de voltar e transferência agora seguem o padrão verde neon do cabeçalho */
+.btn-transferencia, .btn-grafico-voltar {
+  width: 100%;
+  min-width: 220px;
+  max-width: 420px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #ff3c3c 0%, #ff0000 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: 1.2px;
+  margin: 24px auto 0 auto;
+  box-shadow: 0 0 15px #ff3c3c, 0 0 2px #ff0000;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1);
+  outline: none;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.btn-transferencia:hover, .btn-grafico-voltar:hover {
+  background: linear-gradient(90deg, #ff0000 0%, #ff3c3c 100%);
+  color: #fff;
+  transform: scale(1.07);
+  box-shadow: 0 0 30px #ff3c3c, 0 0 8px #ff0000;
+  filter: brightness(1.1);
+}
+
+/* Botão Cancelar agendamento - grande e vermelho suave */
+.btn-cancelar-agendamento {
+  background: linear-gradient(145deg, #ff4d4d, #c90000);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 0 15px #ff4d4d, 0 0 2px #c90000;
+  font-size: 1.15rem;
+  padding: 14px 0;
+  width: 100%;
+  min-width: 180px;
+  max-width: 320px;
+  margin: 18px auto 0 auto;
+  display: block;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1);
+}
+.btn-cancelar-agendamento:hover {
+  background: linear-gradient(145deg, #c90000, #ff4d4d);
+  color: #fff;
+  transform: scale(1.07);
+  box-shadow: 0 0 30px #ff4d4d, 0 0 8px #c90000;
+  filter: brightness(1.1);
+  cursor: pointer;
+}
