@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>E2E Code Brokers - Plataforma de Trading Profissional</title>
+  <link rel="stylesheet" href="landing.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="e2e_favicon_32x32.png" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Ícones (FontAwesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div class="main-bg">
+    <!-- Header Profissional -->
+    <header class="header-profissional" id="header">
+      <div class="header-container">
+        <div class="logo-area">
+          <img src="e2e_favicon_32x32.png" alt="E2E Code Brokers" class="logo-circular" />
+          <span class="logo-title">E2E Code Brokers</span>
+        </div>
+        <nav class="nav-area">
+          <a href="#recursos" class="nav-link">Recursos</a>
+          <a href="#precos" class="nav-link">Preços</a>
+          <a href="#sobre" class="nav-link">Sobre</a>
+          <a href="#contato" class="nav-link">Contato</a>
+          <a id="btn-login" class="btn-login" href="index.html?acesso=ok">
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+              <polyline points="10,17 15,12 10,7"/>
+              <line x1="15" y1="12" x2="3" y2="12"/>
+            </svg>
+            Entrar
+          </a>
+          <a id="btn-cadastro" class="btn-cadastro" href="./index.html?acesso=ok&cadastro=1">
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="8.5" cy="7" r="4"/>
+              <line x1="20" y1="8" x2="20" y2="14"/>
+              <line x1="23" y1="11" x2="17" y2="11"/>
+            </svg>
+            Criar Conta
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section Profissional -->
+    <section class="hero-profissional" id="hero">
+      <div class="hero-background">
+        <div class="hero-particles"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg class="badge-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+            <span>Plataforma de Trading Profissional</span>
+          </div>
+          <h1 class="hero-title">
+            Invista no <span class="gradient-text">Futuro</span><br>
+            com Tecnologia de <span class="gradient-text">Ponta</span>
+          </h1>
+          <p class="hero-description">
+            Acesse o mercado financeiro com ferramentas profissionais, análise técnica avançada 
+            e execução de ordens em tempo real. Sua jornada de investimentos começa aqui.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="./index.html?acesso=ok&cadastro=1">
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <line x1="20" y1="8" x2="20" y2="14"/>
+                <line x1="23" y1="11" x2="17" y2="11"/>
+              </svg>
+              Criar Conta Grátis
+            </a>
+            <a class="btn-secondary" href="index.html?acesso=ok">
+              <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                <polyline points="10,17 15,12 10,7"/>
+                <line x1="15" y1="12" x2="3" y2="12"/>
+              </svg>
+              Fazer Login
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">R$ 2.5B+</div>
+              <div class="stat-label">Volume Negociado</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50K+</div>
+              <div class="stat-label">Investidores Ativos</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">99.9%</div>
+              <div class="stat-label">Uptime</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="trading-mockup">
+            <div class="mockup-header">
+              <div class="mockup-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="mockup-title">E2E Trading Platform</div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-chart">
+                <div class="chart-line"></div>
+                <div class="chart-candles">
+                  <div class="candle green"></div>
+                  <div class="candle red"></div>
+                  <div class="candle green"></div>
+                  <div class="candle red"></div>
+                  <div class="candle green"></div>
+                </div>
+              </div>
+              <div class="mockup-orderbook">
+                <div class="orderbook-header">Order Book</div>
+                <div class="orderbook-rows">
+                  <div class="order-row sell">1.234,56</div>
+                  <div class="order-row sell">1.234,55</div>
+                  <div class="order-row current">1.234,54</div>
+                  <div class="order-row buy">1.234,53</div>
+                  <div class="order-row buy">1.234,52</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- B3 Asset Carousel Animation -->
+      <section class="section-b3-carousel">
+  <h2 class="section-title" id="principais-ativos-b3" style="text-align:center;margin-bottom:12px;">Principais Ativos da B3</h2>
+        <div class="b3-carousel-wrapper">
+          <div class="b3-carousel-track b3-carousel-track-1">
+            <!-- Ativos B3 - duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+            <!-- Duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+          </div>
+          <div class="b3-carousel-track b3-carousel-track-2">
+            <div class="b3-asset-card">
+              <img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/VALE3.png" alt="VALE3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/USIM5.png" alt="USIM5" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/RADL3.png" alt="RADL3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/PETR4.png" alt="PETR4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/LREN3.png" alt="LREN3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div>
+            </div>
+            <div class="b3-asset-card">
+              <img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" />
+              <div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div>
+            </div>
+            <!-- Repete para efeito infinito -->
+            <!-- Ativos B3 - duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+            <!-- Duplicados para animação contínua -->
+            <div class="b3-asset-card"><img src="img/WEGE3.png" alt="WEGE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">WEG</span><span class="b3-asset-codigo">WEGE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/VALE3.png" alt="VALE3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Vale</span><span class="b3-asset-codigo">VALE3</span></div></div>
+            <div class="b3-asset-card"><img src="img/USIM5.png" alt="USIM5" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Usiminas</span><span class="b3-asset-codigo">USIM5</span></div></div>
+            <div class="b3-asset-card"><img src="img/TIMS3.png" alt="TIMS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">TIM</span><span class="b3-asset-codigo">TIMS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/RADL3.png" alt="RADL3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Raia Drogasil</span><span class="b3-asset-codigo">RADL3</span></div></div>
+            <div class="b3-asset-card"><img src="img/PETR4.png" alt="PETR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Petrobras</span><span class="b3-asset-codigo">PETR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/MGLU3.png" alt="MGLU3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Magazine Luiza</span><span class="b3-asset-codigo">MGLU3</span></div></div>
+            <div class="b3-asset-card"><img src="img/LREN3.png" alt="LREN3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Lojas Renner</span><span class="b3-asset-codigo">LREN3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ITUB4.png" alt="ITUB4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Itaú</span><span class="b3-asset-codigo">ITUB4</span></div></div>
+            <div class="b3-asset-card"><img src="img/GGBR4.png" alt="GGBR4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Gerdau</span><span class="b3-asset-codigo">GGBR4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BRFS3.png" alt="BRFS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">BRF</span><span class="b3-asset-codigo">BRFS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBDC4.png" alt="BBDC4" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Bradesco</span><span class="b3-asset-codigo">BBDC4</span></div></div>
+            <div class="b3-asset-card"><img src="img/BBAS3.png" alt="BBAS3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Banco do Brasil</span><span class="b3-asset-codigo">BBAS3</span></div></div>
+            <div class="b3-asset-card"><img src="img/ABEV3.png" alt="ABEV3" class="b3-asset" /><div class="b3-asset-info"><span class="b3-asset-nome">Ambev</span><span class="b3-asset-codigo">ABEV3</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de Recursos Profissionais -->
+      <section id="recursos" class="features-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Recursos Profissionais</h2>
+            <p class="section-description">
+              Ferramentas avançadas para traders e investidores profissionais
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 3v18h18"/>
+                  <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Análise Técnica</h3>
+              <p class="feature-description">
+                Gráficos profissionais com indicadores técnicos avançados e ferramentas de análise.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Execução Rápida</h3>
+              <p class="feature-description">
+                Ordens executadas em milissegundos com tecnologia de alta frequência.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Gestão de Risco</h3>
+              <p class="feature-description">
+                Stop Loss e Take Profit automáticos para proteger seus investimentos.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Segurança Total</h3>
+              <p class="feature-description">
+                Criptografia de nível bancário e autenticação de dois fatores.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Suporte Premium</h3>
+              <p class="feature-description">
+                Atendimento especializado 24/7 para traders profissionais.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Alta Performance</h3>
+              <p class="feature-description">
+                Plataforma otimizada para execução ultrarrápida de ordens.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Seção de Preços -->
+    <section id="precos" class="pricing-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Planos de Investimento</h2>
+          <p class="section-description">
+            Escolha o plano ideal para sua jornada de investimentos
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Starter</h3>
+              <div class="pricing-price">
+                <span class="currency">R$</span>
+                <span class="amount">0</span>
+                <span class="period">/mês</span>
+              </div>
+              <p class="pricing-description">Perfeito para começar</p>
+            </div>
+            <div class="pricing-features">
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Acesso à plataforma básica</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Gráficos em tempo real</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Suporte por email</span>
+              </div>
+            </div>
+            <a href="./index.html?acesso=ok&cadastro=1" class="pricing-btn">Começar Grátis</a>
+          </div>
+          
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Mais Popular</div>
+            <div class="pricing-header">
+              <h3 class="pricing-title">Professional</h3>
+              <div class="pricing-price">
+                <span class="currency">R$</span>
+                <span class="amount">99</span>
+                <span class="period">/mês</span>
+              </div>
+              <p class="pricing-description">Para traders ativos</p>
+            </div>
+            <div class="pricing-features">
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Tudo do plano Starter</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Análise técnica avançada</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Alertas personalizados</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Suporte prioritário</span>
+              </div>
+            </div>
+            <a href="./index.html?acesso=ok&cadastro=1" class="pricing-btn">Assinar Agora</a>
+          </div>
+          
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Enterprise</h3>
+              <div class="pricing-price">
+                <span class="currency">R$</span>
+                <span class="amount">299</span>
+                <span class="period">/mês</span>
+              </div>
+              <p class="pricing-description">Para instituições</p>
+            </div>
+            <div class="pricing-features">
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Tudo do plano Professional</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>API personalizada</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Suporte 24/7</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span>Consultoria dedicada</span>
+              </div>
+            </div>
+            <a href="./index.html?acesso=ok&cadastro=1" class="pricing-btn">Falar com Vendas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Depoimentos -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">O que nossos clientes dizem</h2>
+          <p class="section-description">
+            Depoimentos de traders e investidores que confiam na nossa plataforma
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                "A plataforma mais completa que já usei. A execução é rápida e os gráficos são profissionais. Recomendo para qualquer trader sério."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div class="author-info">
+                <div class="author-name">Carlos Silva</div>
+                <div class="author-role">Trader Profissional</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                "Excelente suporte e ferramentas avançadas. A análise técnica é muito precisa e me ajudou a melhorar meus resultados significativamente."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div class="author-info">
+                <div class="author-name">Ana Costa</div>
+                <div class="author-role">Investidora</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="testimonial-stars">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                "Interface intuitiva e recursos poderosos. A melhor plataforma para trading que já utilizei. Vale cada centavo investido."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div class="author-info">
+                <div class="author-name">Roberto Santos</div>
+                <div class="author-role">Day Trader</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tour da Plataforma -->
+    <section class="section-tour" id="tour">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Tour pela Plataforma</h2>
+          <p class="section-description">Veja como é fácil investir, acompanhar e crescer com a E2E Code Brokers.</p>
+        </div>
+        <div class="tour-video">
+          <video src="tour-demo.mp4" alt="Tour da Plataforma" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </section>
+
+   
+    <!-- Footer Profissional -->
+    <footer class="footer-profissional">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img src="e2e_favicon_32x32.png" alt="E2E Code Brokers" class="footer-logo-img" />
+              <span class="footer-logo-text">E2E Code Brokers</span>
+            </div>
+            <p class="footer-description">
+              A plataforma de trading mais avançada do Brasil. 
+              Tecnologia de ponta para traders profissionais.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-section">
+            <h4 class="footer-title">Plataforma</h4>
+            <ul class="footer-links">
+              <li><a href="#recursos">Recursos</a></li>
+              <li><a href="#precos">Preços</a></li>
+              <li><a href="#tour">Tour</a></li>
+              <li><a href="./index.html?acesso=ok">Login</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4 class="footer-title">Suporte</h4>
+            <ul class="footer-links">
+              <li><a href="#contato">Contato</a></li>
+              <li><a href="#ajuda">Central de Ajuda</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#status">Status do Sistema</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4 class="footer-title">Legal</h4>
+            <ul class="footer-links">
+              <li><a href="#privacidade">Política de Privacidade</a></li>
+              <li><a href="#termos">Termos de Uso</a></li>
+              <li><a href="#cookies">Política de Cookies</a></li>
+              <li><a href="#compliance">Compliance</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h4 class="footer-title">Contato</h4>
+            <div class="footer-contact">
+              <div class="contact-item">
+                <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <span>contato@e2ecodebrokers.com</span>
+              </div>
+              <div class="contact-item">
+                <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>+55 (11) 99999-9999</span>
+              </div>
+              <div class="contact-item">
+                <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>São Paulo, SP - Brasil</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p class="footer-copyright">
+              &copy; 2024 E2E Code Brokers. Todos os direitos reservados.
+            </p>
+            <div class="footer-badges">
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+                <span>SSL Seguro</span>
+              </div>
+              <div class="badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>Regulamentado</span>
+              </div>
+            </div>
+          </div>
+          <div class="footer-credits">
+            <span style="color:#00ffa3; font-weight:600;">Desenvolvido por: Heraldo, Bruno, Fernanda, Hugo, Samuel, Uriel</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JS para partículas, header sticky, scroll suave, FAQ -->
+  <script src="landing.js"></script>
+  <script>
+    // Removido: agora os botões são <a> com href direto para index.html?acesso=ok
+  </script>
+  <style>
+    .login-highlight {
+      box-shadow: 0 0 0 4px var(--green-neon, #00ffb3), 0 0 24px #00ffb399;
+      transition: box-shadow 0.3s;
+    }
+    /* Botões landing iguais ao dashboard: verde para comprar, vermelho para vender */
+    .btn-verde {
+      background: linear-gradient(90deg,#00ffa3 60%,#00cfff 100%) !important;
+      color: #181c2f !important;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #00ffa344;
+      font-size: 1.13rem;
+      padding: 14px 0;
+      width: 100%;
+      min-width: 180px;
+      max-width: 320px;
+      margin: 0 8px;
+      transition: filter 0.2s, background 0.2s, color 0.2s;
+      cursor: pointer;
+      outline: none;
+    }
+    .btn-verde:hover {
+      background: linear-gradient(90deg,#00cfff 0%,#00ffa3 100%) !important;
+      color: #fff !important;
+      filter: brightness(1.08);
+    }
+    .btn-vermelho {
+      background: linear-gradient(90deg,#ff4c4c 60%,#ff0000 100%) !important;
+      color: #fff !important;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #ff4c4c44;
+      font-size: 1.13rem;
+      padding: 14px 0;
+      width: 100%;
+      min-width: 180px;
+      max-width: 320px;
+      margin: 0 8px;
+      transition: filter 0.2s, background 0.2s, color 0.2s;
+      cursor: pointer;
+      outline: none;
+    }
+    .btn-vermelho:hover {
+      background: linear-gradient(90deg,#ff0000 0%,#ff4c4c 100%) !important;
+      color: #fff !important;
+      filter: brightness(1.08);
+    }
+  </style>
+</body>
+</html>

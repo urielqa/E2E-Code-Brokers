@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>E2E Code Brokers - Dashboard Profissional</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="e2e_favicon_32x32.png" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- TradingView Widget -->
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <!-- Ícones (FontAwesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    
+    <!-- Header Profissional -->
+    <header class="dashboard-header">
+      <div class="header-left">
+        <div class="logo-section">
+          <img src="e2e_favicon_32x32.png" alt="E2E Code Brokers" class="logo" />
+          <div class="logo-text">
+            <h1>E2E Code Brokers</h1>
+            <span class="logo-subtitle">Trading Platform</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="header-center">
+        <div class="market-status">
+          <div class="status-indicator active"></div>
+          <span class="status-text">Mercado Aberto</span>
+          <span class="status-time" id="marketTime">09:00 - 18:00</span>
+        </div>
+      </div>
+      
+      <div class="header-right">
+                  <div class="user-info">
+            <div class="user-avatar" onclick="openProfileModal()" style="cursor: pointer;">
+              <img id="userAvatarImg" src="" alt="Avatar" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+              <i class="fas fa-user" id="userAvatarIcon"></i>
+            </div>
+            <div class="user-details" onclick="openProfileModal()" style="cursor: pointer;">
+              <span class="user-name" id="userName">Usuário</span>
+              <span class="user-plan">Premium</span>
+            </div>
+            <div class="user-balance">
+              <span class="balance-label">Saldo</span>
+              <span class="balance-value" id="userBalance">R$ 200.000,00</span>
+            </div>
+            <button class="logout-btn" onclick="logout();">
+              <i class="fas fa-sign-out-alt"></i>
+            </button>
+          </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <nav class="sidebar-nav">
+          <a href="#overview" class="nav-item active" data-tab="overview">
+            <i class="fas fa-chart-line"></i>
+            <span>Visão Geral</span>
+          </a>
+          <a href="#trading" class="nav-item" data-tab="trading">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Trading</span>
+          </a>
+          <a href="#portfolio" class="nav-item" data-tab="portfolio">
+            <i class="fas fa-briefcase"></i>
+            <span>Carteira</span>
+          </a>
+          <a href="#orders" class="nav-item" data-tab="orders">
+            <i class="fas fa-list-alt"></i>
+            <span>Ordens</span>
+          </a>
+          <a href="#history" class="nav-item" data-tab="history">
+            <i class="fas fa-history"></i>
+            <span>Histórico</span>
+          </a>
+          <a href="#analytics" class="nav-item" data-tab="analytics">
+            <i class="fas fa-chart-bar"></i>
+            <span>Análises</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Content Area -->
+      <div class="dashboard-content">
+        
+        <!-- Overview Tab -->
+        <div id="overview" class="tab-content active">
+          <div class="content-header">
+            <h2>Visão Geral do Mercado</h2>
+            <div class="header-actions">
+              <button class="btn-refresh">
+                <i class="fas fa-sync-alt"></i>
+                Atualizar
+              </button>
+            </div>
+          </div>
+          
+          <!-- Market Overview Cards -->
+          <div class="market-overview">
+            <div class="overview-card">
+              <div class="card-header">
+                <h3>IBOVESPA</h3>
+                <span class="card-subtitle">Índice Principal</span>
+              </div>
+              <div class="card-content">
+                <div class="price-info">
+                  <span class="price">127.543,21</span>
+                  <span class="change positive">+1.234,56 (+0.98%)</span>
+                </div>
+                <div class="chart-mini">
+                  <svg viewBox="0 0 100 40" class="mini-chart">
+                    <polyline points="0,35 20,30 40,25 60,20 80,15 100,10" stroke="#00ffa3" fill="none" stroke-width="2"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            <div class="overview-card">
+              <div class="card-header">
+                <h3>USD/BRL</h3>
+                <span class="card-subtitle">Dólar</span>
+              </div>
+              <div class="card-content">
+                <div class="price-info">
+                  <span class="price">R$ 5,12</span>
+                  <span class="change negative">-0,03 (-0.58%)</span>
+                </div>
+                <div class="chart-mini">
+                  <svg viewBox="0 0 100 40" class="mini-chart">
+                    <polyline points="0,10 20,15 40,20 60,25 80,30 100,35" stroke="#ff4757" fill="none" stroke-width="2"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            <div class="overview-card">
+              <div class="card-header">
+                <h3>Bitcoin</h3>
+                <span class="card-subtitle">BTC/BRL</span>
+              </div>
+              <div class="card-content">
+                <div class="price-info">
+                  <span class="price">R$ 185.432</span>
+                  <span class="change positive">+2.456 (+1.34%)</span>
+                </div>
+                <div class="chart-mini">
+                  <svg viewBox="0 0 100 40" class="mini-chart">
+                    <polyline points="0,30 20,25 40,20 60,15 80,10 100,5" stroke="#00ffa3" fill="none" stroke-width="2"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Movers -->
+          <div class="top-movers">
+            <div class="section-header">
+              <h3>Principais Movimentações</h3>
+              <div class="view-toggle">
+                <button class="toggle-btn active" data-view="gainers">Alta</button>
+                <button class="toggle-btn" data-view="losers">Baixa</button>
+              </div>
+            </div>
+            <div class="movers-list" id="topGainers">
+              <div class="mover-item">
+                <div class="mover-info">
+                  <img src="img/PETR4.png" alt="PETR4" class="mover-logo" />
+                  <div class="mover-details">
+                    <span class="mover-symbol">PETR4</span>
+                    <span class="mover-name">Petrobras</span>
+                  </div>
+                </div>
+                <div class="mover-price">
+                  <span class="price">R$ 32,45</span>
+                  <span class="change positive">+2,34 (+7.78%)</span>
+                </div>
+              </div>
+              <div class="mover-item">
+                <div class="mover-info">
+                  <img src="img/VALE3.png" alt="VALE3" class="mover-logo" />
+                  <div class="mover-details">
+                    <span class="mover-symbol">VALE3</span>
+                    <span class="mover-name">Vale</span>
+                  </div>
+                </div>
+                <div class="mover-price">
+                  <span class="price">R$ 67,28</span>
+                  <span class="change positive">+1,23 (+1.86%)</span>
+                </div>
+              </div>
+              <div class="mover-item">
+                <div class="mover-info">
+                  <img src="img/ITUB4.png" alt="ITUB4" class="mover-logo" />
+                  <div class="mover-details">
+                    <span class="mover-symbol">ITUB4</span>
+                    <span class="mover-name">Itaú</span>
+                  </div>
+                </div>
+                <div class="mover-price">
+                  <span class="price">R$ 28,99</span>
+                  <span class="change positive">+0,45 (+1.58%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trading Tab -->
+        <div id="trading" class="tab-content">
+          <div class="content-header">
+            <h2>Plataforma de Trading</h2>
+            <div class="header-actions">
+              <button class="btn-settings">
+                <i class="fas fa-cog"></i>
+                Configurações
+              </button>
+            </div>
+          </div>
+          
+          <div class="trading-layout">
+            <!-- Trading Chart -->
+            <div class="trading-chart">
+              <div class="chart-header">
+                <div class="chart-controls">
+                  <select class="asset-selector" id="assetSelector">
+                    <option value="PETR4">PETR4 - Petrobras</option>
+                    <option value="VALE3">VALE3 - Vale</option>
+                    <option value="ITUB4">ITUB4 - Itaú</option>
+                    <option value="ABEV3">ABEV3 - Ambev</option>
+                    <option value="BBDC4">BBDC4 - Bradesco</option>
+                    <option value="BBAS3">BBAS3 - Banco do Brasil</option>
+                    <option value="BRFS3">BRFS3 - BRF</option>
+                    <option value="GGBR4">GGBR4 - Gerdau</option>
+                    <option value="USIM5">USIM5 - Usiminas</option>
+                    <option value="MGLU3">MGLU3 - Magazine Luiza</option>
+                    <option value="LREN3">LREN3 - Lojas Renner</option>
+                    <option value="WEGE3">WEGE3 - WEG</option>
+                    <option value="RADL3">RADL3 - Raia Drogasil</option>
+                    <option value="TIMS3">TIMS3 - TIM</option>
+                  </select>
+                  <div class="timeframe-selector">
+                    <button class="timeframe-btn active" data-timeframe="1m">1m</button>
+                    <button class="timeframe-btn" data-timeframe="5m">5m</button>
+                    <button class="timeframe-btn" data-timeframe="15m">15m</button>
+                    <button class="timeframe-btn" data-timeframe="1h">1h</button>
+                    <button class="timeframe-btn" data-timeframe="1d">1D</button>
+                  </div>
+                </div>
+                <div class="chart-tools">
+                  <button class="tool-btn" title="Indicadores">
+                    <i class="fas fa-chart-line"></i>
+                  </button>
+                  <button class="tool-btn" title="Desenhar">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                  <button class="tool-btn" title="Fullscreen">
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="chart-container" id="tradingview_chart">
+                <div class="chart-placeholder">
+                  <i class="fas fa-chart-line"></i>
+                  <p>Carregando gráfico...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order Panel -->
+            <div class="order-panel">
+              <div class="panel-header">
+                <h3>Ordem de Compra/Venda</h3>
+                <div class="order-type-toggle">
+                  <button class="order-type-btn active" data-type="market">Mercado</button>
+                  <button class="order-type-btn" data-type="limit">Limitada</button>
+                </div>
+              </div>
+              
+              <div class="order-form">
+                <div class="form-group">
+                  <label>Ativo</label>
+                  <select class="form-select" id="orderAsset">
+                    <option value="PETR4">PETR4 - Petrobras</option>
+                    <option value="VALE3">VALE3 - Vale</option>
+                    <option value="ITUB4">ITUB4 - Itaú</option>
+                    <option value="ABEV3">ABEV3 - Ambev</option>
+                    <option value="BBDC4">BBDC4 - Bradesco</option>
+                    <option value="BBAS3">BBAS3 - Banco do Brasil</option>
+                    <option value="BRFS3">BRFS3 - BRF</option>
+                    <option value="GGBR4">GGBR4 - Gerdau</option>
+                    <option value="USIM5">USIM5 - Usiminas</option>
+                    <option value="MGLU3">MGLU3 - Magazine Luiza</option>
+                    <option value="LREN3">LREN3 - Lojas Renner</option>
+                    <option value="WEGE3">WEGE3 - WEG</option>
+                    <option value="RADL3">RADL3 - Raia Drogasil</option>
+                    <option value="TIMS3">TIMS3 - TIM</option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label>Quantidade</label>
+                  <input type="number" class="form-input" id="orderQuantity" placeholder="100" min="1" />
+                </div>
+                
+                <div class="form-group">
+                  <label>Preço (R$)</label>
+                  <input type="number" class="form-input" id="orderPrice" placeholder="0.00" step="0.01" min="0.01" />
+                </div>
+                
+                <!-- Campos de Stop Loss e Take Profit -->
+                <div class="order-advanced" id="orderAdvanced" style="display: none;">
+                  <div class="form-group">
+                    <label>Stop Loss (R$)</label>
+                    <input type="number" class="form-input" id="stopLossPrice" placeholder="0.00" step="0.01" min="0.01" />
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>Take Profit (R$)</label>
+                    <input type="number" class="form-input" id="takeProfitPrice" placeholder="0.00" step="0.01" min="0.01" />
+                  </div>
+                </div>
+                
+                <div class="order-summary">
+                  <div class="summary-row">
+                    <span>Valor Total:</span>
+                    <span id="orderTotal">R$ 0,00</span>
+                  </div>
+                  <div class="summary-row">
+                    <span>Taxas:</span>
+                    <span id="orderFees">R$ 0,00</span>
+                  </div>
+                  <div class="summary-row total">
+                    <span>Total + Taxas:</span>
+                    <span id="orderTotalWithFees">R$ 0,00</span>
+                  </div>
+                </div>
+                
+                <div class="order-actions">
+                  <button class="btn-tech btn-buy" onclick="executeOrder('buy')">
+                    <i class="fas fa-arrow-up"></i>
+                    Comprar
+                  </button>
+                  <button class="btn-tech btn-sell" onclick="executeOrder('sell')">
+                    <i class="fas fa-arrow-down"></i>
+                    Vender
+                  </button>
+                </div>
+                
+                <div class="risk-management">
+                  <h4>Gestão de Risco</h4>
+                  <div class="checkbox-group">
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="stopLoss" onchange="toggleAdvancedFields()" />
+                      <span class="checkmark"></span>
+                      Stop Loss
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="takeProfit" onchange="toggleAdvancedFields()" />
+                      <span class="checkmark"></span>
+                      Take Profit
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portfolio Tab -->
+        <div id="portfolio" class="tab-content">
+          <div class="content-header">
+            <h2>Minha Carteira</h2>
+            <div class="header-actions">
+              <button class="btn-export">
+                <i class="fas fa-download"></i>
+                Exportar
+              </button>
+            </div>
+          </div>
+          
+          <div class="portfolio-overview">
+            <div class="portfolio-summary">
+              <div class="summary-card">
+                <h3>Valor Total</h3>
+                <span class="summary-value" id="portfolioValue">R$ 200.000,00</span>
+              </div>
+              <div class="summary-card">
+                <h3>Lucro/Prejuízo</h3>
+                <span class="summary-value positive" id="portfolioPnL">+R$ 0,00</span>
+              </div>
+              <div class="summary-card">
+                <h3>Rendimento</h3>
+                <span class="summary-value positive" id="portfolioReturn">+0.00%</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="portfolio-table">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Ativo</th>
+                  <th>Quantidade</th>
+                  <th>Preço Médio</th>
+                  <th>Valor Atual</th>
+                  <th>Valor Total</th>
+                  <th>L/P</th>
+                  <th>Variação %</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="portfolioTableBody">
+                <tr class="empty-row">
+                  <td colspan="8" class="empty-message">
+                    <i class="fas fa-briefcase"></i>
+                    <p>Nenhum ativo em carteira</p>
+                    <span>Comece a investir para ver seus ativos aqui</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Orders Tab -->
+        <div id="orders" class="tab-content">
+          <div class="content-header">
+            <h2>Ordens Ativas</h2>
+            <div class="header-actions">
+              <button class="btn-cancel-all">
+                <i class="fas fa-times"></i>
+                Cancelar Todas
+              </button>
+            </div>
+          </div>
+          
+          <div class="orders-table">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Ativo</th>
+                  <th>Quantidade</th>
+                  <th>Preço</th>
+                  <th>Status</th>
+                  <th>Data/Hora</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <tr class="empty-row">
+                  <td colspan="7" class="empty-message">
+                    <i class="fas fa-list-alt"></i>
+                    <p>Nenhuma ordem ativa</p>
+                    <span>Suas ordens aparecerão aqui</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- History Tab -->
+        <div id="history" class="tab-content">
+          <div class="content-header">
+            <h2>Histórico de Operações</h2>
+            <div class="header-actions">
+              <button class="btn-export">
+                <i class="fas fa-download"></i>
+                Exportar
+              </button>
+            </div>
+          </div>
+          
+          <div class="history-filters">
+            <div class="filter-group">
+              <label>Período:</label>
+              <select class="form-select">
+                <option value="today">Hoje</option>
+                <option value="week">Esta Semana</option>
+                <option value="month">Este Mês</option>
+                <option value="all">Todos</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label>Tipo:</label>
+              <select class="form-select">
+                <option value="all">Todos</option>
+                <option value="buy">Compras</option>
+                <option value="sell">Vendas</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="history-table">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Data/Hora</th>
+                  <th>Tipo</th>
+                  <th>Ativo</th>
+                  <th>Quantidade</th>
+                  <th>Preço Unit.</th>
+                  <th>Total</th>
+                  <th>Taxas</th>
+                  <th>L/P</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="historyTableBody">
+                <tr class="empty-row">
+                  <td colspan="9" class="empty-message">
+                    <i class="fas fa-history"></i>
+                    <p>Nenhuma operação realizada</p>
+                    <span>Seu histórico de operações aparecerá aqui</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div id="analytics" class="tab-content">
+          <div class="content-header">
+            <h2>Análises e Relatórios</h2>
+            <div class="header-actions">
+              <button class="btn-generate">
+                <i class="fas fa-chart-bar"></i>
+                Gerar Relatório
+              </button>
+            </div>
+          </div>
+          
+          <div class="analytics-grid">
+            <div class="analytics-card">
+              <h3>Performance Mensal</h3>
+              <div class="chart-container">
+                <canvas id="monthlyChart"></canvas>
+              </div>
+            </div>
+            
+            <div class="analytics-card">
+              <h3>Distribuição de Ativos</h3>
+              <div class="chart-container">
+                <canvas id="distributionChart"></canvas>
+              </div>
+            </div>
+            
+            <div class="analytics-card">
+              <h3>Risco vs Retorno</h3>
+              <div class="chart-container">
+                <canvas id="riskReturnChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal de Perfil -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal-content profile-modal">
+      <div class="modal-header">
+        <div class="modal-icon">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="modal-title-section">
+          <h2>Meu Perfil</h2>
+          <p>Gerencie suas informações pessoais e conta</p>
+        </div>
+        <button class="modal-close" onclick="closeProfileModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Seção de Foto de Perfil -->
+        <div class="profile-photo-section">
+          <div class="profile-photo-container">
+            <div class="profile-photo" id="profilePhoto">
+              <img id="profileImage" src="" alt="Foto do perfil" style="display: none;">
+              <div class="profile-photo-placeholder" id="profilePhotoPlaceholder">
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+            <button class="upload-photo-btn" onclick="document.getElementById('photoInput').click()">
+              <i class="fas fa-camera"></i>
+              Alterar Foto
+            </button>
+            <input type="file" id="photoInput" accept="image/*" style="display: none;" onchange="handlePhotoUpload(event)">
+          </div>
+        </div>
+
+        <!-- Informações Pessoais -->
+        <div class="profile-section">
+          <h3>Informações Pessoais</h3>
+          <div class="profile-grid">
+                                 <div class="profile-field">
+                       <label>Nome Completo</label>
+                       <input type="text" id="profileName" readonly oninput="validateProfileName(this)" onblur="validateProfileName(this)">
+                       <div class="field-error" id="profileNameError"></div>
+                     </div>
+                     <div class="profile-field">
+                       <label>E-mail</label>
+                       <input type="email" id="profileEmail" readonly oninput="validateProfileEmail(this)" onblur="validateProfileEmail(this)">
+                       <div class="field-error" id="profileEmailError"></div>
+                     </div>
+                     <div class="profile-field">
+                       <label>WhatsApp</label>
+                       <input type="text" id="profileWhatsApp" readonly oninput="formatWhatsApp(this); validateProfileWhatsApp(this)" onblur="validateProfileWhatsApp(this)">
+                       <div class="field-error" id="profileWhatsAppError"></div>
+                     </div>
+                     <div class="profile-field">
+                       <label>CPF</label>
+                       <input type="text" id="profileCPF" readonly oninput="formatCPF(this); validateProfileCPF(this)" onblur="validateProfileCPF(this)">
+                       <div class="field-error" id="profileCPFError"></div>
+                     </div>
+          </div>
+        </div>
+
+                         <!-- Informações da Conta -->
+                 <div class="profile-section">
+                   <h3>Informações da Conta</h3>
+                   <div class="profile-grid">
+                     <div class="profile-field">
+                       <label>Data de Registro</label>
+                       <input type="text" id="profileRegistrationDate" readonly class="readonly-field">
+                     </div>
+                     <div class="profile-field">
+                       <label>Tempo na Plataforma</label>
+                       <input type="text" id="profileTimeOnPlatform" readonly class="readonly-field">
+                     </div>
+                     <div class="profile-field">
+                       <label>Status da Conta</label>
+                       <div class="status-badge premium">
+                         <i class="fas fa-crown"></i>
+                         Premium
+                       </div>
+                     </div>
+                     <div class="profile-field">
+                       <label>ID do Usuário</label>
+                       <input type="text" id="profileUserId" readonly class="readonly-field">
+                     </div>
+                   </div>
+                 </div>
+
+        <!-- Estatísticas de Trading -->
+        <div class="profile-section">
+          <h3>Estatísticas de Trading</h3>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Total Investido</span>
+                <span class="stat-value" id="totalInvested">R$ 0,00</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Operações Realizadas</span>
+                <span class="stat-value" id="totalOperations">0</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Taxa de Sucesso</span>
+                <span class="stat-value" id="successRate">0%</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-coins"></i>
+              </div>
+              <div class="stat-info">
+                <span class="stat-label">Saldo Atual</span>
+                <span class="stat-value" id="currentBalance">R$ 0,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ativos em Carteira -->
+        <div class="profile-section">
+          <h3>Ativos em Carteira</h3>
+          <div class="portfolio-summary" id="portfolioSummary">
+            <div class="empty-portfolio">
+              <i class="fas fa-wallet"></i>
+              <p>Nenhum ativo em carteira</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+                     <!-- Seção de Ações Financeiras -->
+               <div class="profile-section">
+                 <h3>Ações Financeiras</h3>
+                 <div class="financial-actions">
+                   <button class="action-btn deposit-btn" onclick="showDepositModal()">
+                     <i class="fas fa-plus-circle"></i>
+                     <span>Depósito</span>
+                   </button>
+                   <button class="action-btn transfer-btn" onclick="showTransferModal()">
+                     <i class="fas fa-exchange-alt"></i>
+                     <span>Transferência</span>
+                   </button>
+                   <button class="action-btn withdraw-btn" onclick="showWithdrawModal()">
+                     <i class="fas fa-minus-circle"></i>
+                     <span>Saque</span>
+                   </button>
+                 </div>
+               </div>
+               
+               <div class="modal-footer">
+                 <button class="btn-secondary" onclick="closeProfileModal()">
+                   <i class="fas fa-times"></i>
+                   Fechar
+                 </button>
+                 <button class="btn-primary" onclick="toggleEditMode()">
+                   <i class="fas fa-edit"></i>
+                   <span id="editBtnText">Editar Perfil</span>
+                 </button>
+               </div>
+    </div>
+  </div>
+
+  <!-- Modal de Depósito -->
+  <div class="modal-overlay" id="depositModal">
+    <div class="modal-content deposit-modal">
+      <div class="modal-header">
+        <div class="modal-icon">
+          <i class="fas fa-plus-circle"></i>
+        </div>
+        <div class="modal-title-section">
+          <h2>Depósito</h2>
+          <p>Adicione fundos à sua conta de investimento</p>
+        </div>
+        <button class="modal-close" onclick="closeDepositModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="deposit-form">
+          <div class="form-group">
+            <label>Valor do Depósito</label>
+            <input type="number" id="depositAmount" placeholder="0,00" step="0.01" min="0">
+          </div>
+          <div class="form-group">
+            <label>Método de Pagamento</label>
+            <select id="depositMethod" onchange="toggleBankFields()">
+              <option value="pix">PIX</option>
+              <option value="ted">TED</option>
+              <option value="boleto">Boleto</option>
+            </select>
+          </div>
+          <div class="form-group" id="pixFields">
+            <label>Tipo de Chave PIX</label>
+            <select id="pixKeyType" onchange="togglePixKeyField()">
+              <option value="">Selecione o tipo</option>
+              <option value="cpf">CPF</option>
+              <option value="email">E-mail</option>
+              <option value="phone">Telefone</option>
+              <option value="random">Chave Aleatória</option>
+            </select>
+          </div>
+          <div class="form-group" id="pixKeyField" style="display: none;">
+            <label id="pixKeyLabel">Chave PIX</label>
+            <input type="text" id="pixKeyValue" placeholder="Digite a chave PIX" oninput="validatePixKey()">
+            <div class="field-error" id="pixKeyError"></div>
+          </div>
+          <div class="form-group" id="bankFields" style="display: none;">
+            <label>Banco</label>
+            <select id="depositBank">
+              <option value="">Selecione o banco</option>
+              <option value="001">Banco do Brasil</option>
+              <option value="237">Bradesco</option>
+              <option value="341">Itaú</option>
+              <option value="033">Santander</option>
+              <option value="104">Caixa Econômica</option>
+            </select>
+          </div>
+          <div class="form-group" id="accountFields" style="display: none;">
+            <label>Agência</label>
+            <input type="text" id="depositAgency" placeholder="0000" maxlength="4" oninput="formatAgency(this)">
+            <label>Conta</label>
+            <input type="text" id="depositAccount" placeholder="00000-0" maxlength="8" oninput="formatAccount(this)">
+          </div>
+          <div class="deposit-info">
+            <p><i class="fas fa-info-circle"></i> Depósitos via PIX são processados instantaneamente</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeDepositModal()">
+          <i class="fas fa-times"></i>
+          Cancelar
+        </button>
+        <button class="btn-primary" onclick="processDeposit()">
+          <i class="fas fa-check"></i>
+          Confirmar Depósito
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Transferência -->
+  <div class="modal-overlay" id="transferModal">
+    <div class="modal-content transfer-modal">
+      <div class="modal-header">
+        <div class="modal-icon">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+        <div class="modal-title-section">
+          <h2>Transferência</h2>
+          <p>Transfira fundos para outra conta</p>
+        </div>
+        <button class="modal-close" onclick="closeTransferModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="transfer-form">
+          <div class="form-group">
+            <label>Valor da Transferência</label>
+            <input type="number" id="transferAmount" placeholder="0,00" step="0.01" min="0">
+          </div>
+          <div class="form-group">
+            <label>CPF do Destinatário</label>
+            <input type="text" id="transferCPF" placeholder="000.000.000-00" maxlength="14" oninput="formatCPF(this)">
+          </div>
+          <div class="form-group">
+            <label>Nome do Destinatário</label>
+            <input type="text" id="transferName" placeholder="Nome completo">
+          </div>
+          <div class="form-group">
+            <label>Banco do Destinatário</label>
+            <select id="transferBank">
+              <option value="">Selecione o banco</option>
+              <option value="001">Banco do Brasil</option>
+              <option value="237">Bradesco</option>
+              <option value="341">Itaú</option>
+              <option value="033">Santander</option>
+              <option value="104">Caixa Econômica</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Agência</label>
+            <input type="text" id="transferAgency" placeholder="0000" maxlength="4" oninput="formatAgency(this)">
+          </div>
+          <div class="form-group">
+            <label>Conta</label>
+            <input type="text" id="transferAccount" placeholder="00000-0" maxlength="8" oninput="formatAccount(this)">
+          </div>
+          <div class="transfer-info">
+            <p><i class="fas fa-info-circle"></i> Transferências são processadas em até 1 dia útil</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeTransferModal()">
+          <i class="fas fa-times"></i>
+          Cancelar
+        </button>
+        <button class="btn-primary" onclick="processTransfer()">
+          <i class="fas fa-check"></i>
+          Confirmar Transferência
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Saque -->
+  <div class="modal-overlay" id="withdrawModal">
+    <div class="modal-content withdraw-modal">
+      <div class="modal-header">
+        <div class="modal-icon">
+          <i class="fas fa-minus-circle"></i>
+        </div>
+        <div class="modal-title-section">
+          <h2>Saque</h2>
+          <p>Retire fundos da sua conta de investimento</p>
+        </div>
+        <button class="modal-close" onclick="closeWithdrawModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="withdraw-form">
+          <div class="form-group">
+            <label>Valor do Saque</label>
+            <input type="number" id="withdrawAmount" placeholder="0,00" step="0.01" min="0">
+          </div>
+          <div class="form-group">
+            <label>Banco</label>
+            <select id="withdrawBank">
+              <option value="">Selecione o banco</option>
+              <option value="001">Banco do Brasil</option>
+              <option value="237">Bradesco</option>
+              <option value="341">Itaú</option>
+              <option value="033">Santander</option>
+              <option value="104">Caixa Econômica</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Agência</label>
+            <input type="text" id="withdrawAgency" placeholder="0000" maxlength="4" oninput="formatAgency(this)">
+          </div>
+          <div class="form-group">
+            <label>Conta</label>
+            <input type="text" id="withdrawAccount" placeholder="00000-0" maxlength="8" oninput="formatAccount(this)">
+          </div>
+          <div class="form-group">
+            <label>Tipo de Conta</label>
+            <select id="withdrawAccountType">
+              <option value="conta-corrente">Conta Corrente</option>
+              <option value="poupanca">Poupança</option>
+            </select>
+          </div>
+          <div class="withdraw-info">
+            <p><i class="fas fa-info-circle"></i> Saques são processados em até 2 dias úteis</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeWithdrawModal()">
+          <i class="fas fa-times"></i>
+          Cancelar
+        </button>
+        <button class="btn-primary" onclick="processWithdraw()">
+          <i class="fas fa-check"></i>
+          Confirmar Saque
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Vender Tudo -->
+  <div class="modal-overlay" id="sellAllModal">
+    <div class="modal-content sell-all-modal">
+      <div class="modal-header">
+        <div class="modal-icon">
+          <i class="fas fa-times-circle"></i>
+        </div>
+        <div class="modal-title-section">
+          <h2>Vender Tudo</h2>
+          <p>Confirme a venda de todas as ações deste ativo</p>
+        </div>
+        <button class="modal-close" onclick="closeSellAllModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="sell-all-warning">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div class="warning-text">
+            <h3>Atenção!</h3>
+            <p>Você está prestes a vender <strong>TODAS</strong> as ações deste ativo:</p>
+          </div>
+        </div>
+        
+        <div class="sell-all-details">
+          <div class="asset-info">
+            <div class="asset-symbol" id="sellAllSymbol">-</div>
+            <div class="asset-quantity" id="sellAllQuantity">-</div>
+          </div>
+          
+          <div class="price-info">
+            <div class="price-item">
+              <span class="price-label">Preço Atual:</span>
+              <span class="price-value" id="sellAllCurrentPrice">-</span>
+            </div>
+            <div class="price-item">
+              <span class="price-label">Preço Médio:</span>
+              <span class="price-value" id="sellAllAvgPrice">-</span>
+            </div>
+            <div class="price-item total">
+              <span class="price-label">Valor Total:</span>
+              <span class="price-value" id="sellAllTotalValue">-</span>
+            </div>
+            <div class="price-item pnl">
+              <span class="price-label">P&L:</span>
+              <span class="price-value" id="sellAllPnL">-</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sell-all-consequences">
+          <h4><i class="fas fa-info-circle"></i> Consequências:</h4>
+          <ul>
+            <li><i class="fas fa-briefcase"></i> Posição será zerada completamente</li>
+            <li><i class="fas fa-coins"></i> Valor será creditado no saldo</li>
+            <li><i class="fas fa-history"></i> Operação será registrada no histórico</li>
+            <li><i class="fas fa-chart-line"></i> P&L será realizado</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeSellAllModal()">
+          <i class="fas fa-times"></i>
+          Cancelar
+        </button>
+        <button class="btn-primary" onclick="confirmSellAll()">
+          <i class="fas fa-check"></i>
+          Confirmar Venda
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Logout -->
+  <div class="modal-overlay" id="logoutModal">
+    <div class="modal-content logout-modal">
+      <div class="logout-header">
+        <div class="logout-icon">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <h2>Confirmar Logout</h2>
+        <p>Você está prestes a sair da sua conta</p>
+      </div>
+      
+      <div class="logout-body">
+        <div class="logout-warning">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div class="warning-text">
+            <h3>Atenção!</h3>
+            <p>Ao fazer logout, todos os dados da sessão serão limpos:</p>
+            <ul>
+              <li><i class="fas fa-briefcase"></i> Carteira será zerada</li>
+              <li><i class="fas fa-history"></i> Histórico será limpo</li>
+              <li><i class="fas fa-list-alt"></i> Ordens serão canceladas</li>
+              <li><i class="fas fa-coins"></i> Saldo será resetado</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="logout-user-info">
+          <div class="user-avatar-small">
+            <img id="logoutUserAvatar" src="" alt="Avatar" style="display: none;">
+            <i class="fas fa-user" id="logoutUserIcon"></i>
+          </div>
+          <div class="user-details-small">
+            <span class="user-name-small" id="logoutUserName">Usuário</span>
+            <span class="user-email-small" id="logoutUserEmail">email@exemplo.com</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="logout-footer">
+        <button class="btn-cancel" onclick="closeLogoutModal()">
+          <i class="fas fa-times"></i>
+          Cancelar
+        </button>
+        <button class="btn-confirm-logout" onclick="confirmLogout()">
+          <i class="fas fa-sign-out-alt"></i>
+          Confirmar Logout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <!-- Modal de Cancelar Todas as Ordens -->
+  <div class="modal-overlay" id="cancelAllModal">
+    <div class="modal-content cancel-all-modal">
+      <div class="modal-header">
+        <div class="modal-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="modal-title-section">
+          <h2>Cancelar Todas as Ordens</h2>
+          <p>Confirme o cancelamento de todas as ordens pendentes</p>
+        </div>
+        <button class="modal-close" onclick="closeCancelAllModal()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="cancel-warning">
+          <i class="fas fa-exclamation-triangle"></i>
+          <div class="warning-text">
+            <h3>Atenção!</h3>
+            <p>Você está prestes a cancelar <strong id="cancelOrderCount">0</strong> ordens pendentes:</p>
+          </div>
+        </div>
+        
+        <div class="orders-list" id="ordersToCancel">
+          <!-- Lista de ordens será preenchida aqui -->
+        </div>
+        
+        <div class="cancel-consequences">
+          <h4><i class="fas fa-info-circle"></i> Consequências:</h4>
+          <ul>
+            <li><i class="fas fa-times-circle"></i> Todas as ordens serão canceladas</li>
+            <li><i class="fas fa-history"></i> Não será possível reverter esta ação</li>
+            <li><i class="fas fa-chart-line"></i> Posições não serão executadas</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeCancelAllModal()">
+          <i class="fas fa-times"></i>
+          Cancelar
+        </button>
+        <button class="btn-primary" onclick="confirmCancelAllOrders()">
+          <i class="fas fa-check"></i>
+          Confirmar Cancelamento
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+  
+  <!-- TradingView Chart Library -->
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</body>
+</html>

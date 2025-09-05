@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <!-- Redirecionamento automático para landing.html se não estiver nela -->
+    <script>
+      // Permite acesso ao index.html se vier da landing.html com ?acesso=ok
+      const urlParams = new URLSearchParams(window.location.search);
+      if (!window.location.pathname.endsWith('landing.html') && !urlParams.has('acesso')) {
+        window.location.replace('landing.html');
+      }
+      // Se veio com ?cadastro=1, mostrar tela de cadastro automaticamente
+      function exibirCadastroSeNecessario() {
+        if (urlParams.get('cadastro') === '1') {
+          var loginSection = document.getElementById('loginSection');
+          var cadastroSection = document.getElementById('cadastroSection');
+          if (loginSection && cadastroSection) {
+            loginSection.classList.add('hidden');
+            cadastroSection.classList.remove('hidden');
+            window.scrollTo(0, 0);
+            var nomeInput = document.getElementById('nome');
+            if (nomeInput) nomeInput.focus();
+          } else {
+            setTimeout(exibirCadastroSeNecessario, 100);
+          }
+        }
+      }
+      document.addEventListener('DOMContentLoaded', exibirCadastroSeNecessario);
+      // Garante que o cadastro seja exibido mesmo após outros scripts
+      window.addEventListener('load', function () {
+        if (urlParams.get('cadastro') === '1') {
+          var loginSection = document.getElementById('loginSection');
+          var cadastroSection = document.getElementById('cadastroSection');
+          if (loginSection && cadastroSection) {
+            loginSection.classList.add('hidden');
+            cadastroSection.classList.remove('hidden');
+            window.scrollTo(0, 0);
+            var nomeInput = document.getElementById('nome');
+            if (nomeInput) nomeInput.focus();
+          }
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <title>E2E Invest - Home Broker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="validacoes.css" />
+    <link rel="stylesheet" href="export-dropdown.css" />
+    <style>
+      #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      body,
+      html {
+        min-height: 100vh;
+        /* Fundo tecnológico igual ao da landing page */
+        background: linear-gradient(120deg, #18192b 0%, #2b1e4a 50%, #18192b 100%);
+        background-size: 200% 200%;
+        animation: gradientMove 12s ease-in-out infinite;
+        position: relative;
+      }
+
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- SheetJS (XLSX) CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="particles-js"></div>
+    <div class="container">
+      <!-- REDIRECIONAMENTO -->
+
+
+      <!-- LOGIN -->
+      <div id="loginSection" class="card"
+        style="max-width: 430px; margin: 40px auto; padding: 36px 32px 32px 32px; box-shadow: 0 4px 32px #0004; border-radius: 18px; background: #181c2f;">
+        <div style="text-align: center; margin-bottom: 12px;">
+          <img src="e2e_favicon_32x32.png" alt="Logo" class="logo"
+            style="width: 64px; height: 64px; border-radius: 50%; box-shadow: 0 0 16px #00ffa3; background: #232a3d;" />
+        </div>
+        <h1 style="color: #fff; font-size: 2.2rem; font-weight: bold; margin-bottom: 4px; text-align:left;">Iniciar
+          sessão</h1>
+        <p style="color: #e6e6e6; font-size: 1.1rem; margin-bottom: 14px; text-align:left;">Insira login e senha para
+          acessar sua conta</p>
+        <div class="form-field">
+          <label for="cpf" class="form-label">CPF</label>
+          <input type="text" id="cpf" class="form-input" placeholder="Digite seu CPF" inputmode="text" maxlength="14" />
+        </div>
+        <div class="form-field">
+          <label for="senha" class="form-label">Senha</label>
+          <div class="form-input-with-icon">
+            <input type="password" id="senha" class="form-input" placeholder="Digite sua senha" />
+            <span class="form-input-icon" id="toggleSenha" tabindex="0" aria-label="Mostrar/ocultar senha">
+              <svg id="iconOlho" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="12" rx="9" ry="6" />
+                <circle cx="12" cy="12" r="2.5" />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div style="text-align:right; margin-bottom: 24px;">
+          <a href="#" onclick="esqueciSenha();return false;" class="link-animado">Esqueci minha senha</a>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <button onclick="login()"
+            style="width:100%; background:linear-gradient(90deg,#8e7fff 60%,#6c4cff 100%); color:#fff; font-size:1.13rem; font-weight:bold; border:none; border-radius:14px; padding:12px 0; margin-bottom:12px; box-shadow:0 2px 12px #8e7fff44; cursor:pointer; transition:filter 0.2s; text-align:center;">Iniciar
+            sessão</button>
+          <div style="margin-top:18px; display:flex; align-items:center; gap:12px; justify-content:center;">
+            <span style="color:#fff; font-size:1rem;">Não tem conta?</span>
+            <a href="#" onclick="mostrarCadastro();return false;" class="link-animado">Cadastre-se</a>
+          </div>
+        </div>
+        <p id="loginMsg" class="mensagem" style="text-align:center; margin-top:18px;"></p>
+      </div>
+
+      <!-- CADASTRO -->
+      <div id="cadastroSection" class="card hidden"
+        style="max-width: 480px; margin: 40px auto; padding: 36px 32px 32px 32px; box-shadow: 0 4px 32px #0004; border-radius: 18px; background: #181c2f;">
+        <div style="text-align: center; margin-bottom: 12px;">
+          <img src="e2e_favicon_32x32.png" alt="Logo" class="logo"
+            style="width: 64px; height: 64px; border-radius: 50%; box-shadow: 0 0 16px #00ffa3; background: #232a3d;" />
+        </div>
+        <h1 style="color: #fff; font-size: 2.2rem; font-weight: bold; margin-bottom: 4px; text-align:left;">Cadastrar
+        </h1>
+        <p style="color: #e6e6e6; font-size: 1.1rem; margin-bottom: 14px; text-align:left;">Crie sua conta gratuita e
+          comece a negociar</p>
+        <div class="form-field">
+          <label for="nome" class="form-label">Nome completo</label>
+          <input type="text" id="nome" class="form-input" placeholder="Ex: João Silva" />
+        </div>
+        <div class="form-field">
+          <label for="whatsapp" class="form-label">Celular</label>
+          <input type="tel" id="whatsapp" class="form-input" placeholder="Digite seu celular com DDD"
+            pattern="[0-9]{10,11}" required />
+        </div>
+        <div class="form-field">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" id="email" class="form-input" placeholder="Digite seu e-mail válido" required />
+        </div>
+        <div class="form-field">
+          <label for="novoCpf" class="form-label">CPF</label>
+          <input type="text" id="novoCpf" class="form-input" placeholder="Digite seu CPF" inputmode="text"
+            maxlength="14" />
+        </div>
+        <div class="form-field">
+          <label for="novaSenhaCadastro" class="form-label">Senha</label>
+          <div class="form-input-with-icon">
+            <input type="password" id="novaSenhaCadastro" class="form-input" placeholder="Crie uma senha segura" />
+            <span class="form-input-icon" id="toggleNovaSenhaCadastro" tabindex="0" aria-label="Mostrar/ocultar senha">
+              <svg id="iconOlhoCadastro" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="12" rx="9" ry="6" />
+                <circle cx="12" cy="12" r="2.5" />
+              </svg>
+            </span>
+          </div>
+          <div class="password-strength" id="passwordStrength" style="display: none;">
+            <div class="password-strength-bar" id="passwordStrengthBar"></div>
+          </div>
+          <div class="password-strength-text" id="passwordStrengthText" style="display: none;"></div>
+        </div>
+        <div class="form-field">
+          <label for="confirmaSenha" class="form-label">Confirmar Senha</label>
+          <input type="password" id="confirmaSenha" class="form-input" placeholder="Repita a mesma senha criada" />
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <button onclick="cadastrarUsuario()"
+            style="width:100%; background:linear-gradient(90deg,#8e7fff 60%,#6c4cff 100%); color:#fff; font-size:1.13rem; font-weight:bold; border:none; border-radius:14px; padding:12px 0; margin-bottom:12px; box-shadow:0 2px 12px #8e7fff44; cursor:pointer; transition:filter 0.2s; text-align:center;">Cadastrar</button>
+          <div style="margin-top:18px; display:flex; align-items:center; gap:12px; justify-content:center;">
+            <span style="color:#fff; font-size:1rem;">Já tem uma conta?</span>
+            <a href="#" onclick="mostrarLogin();return false;" class="link-animado">Iniciar sessão</a>
+          </div>
+        </div>
+        <p id="cadastroMsg" class="mensagem" style="text-align:center; margin-top:18px;"></p>
+      </div>
+
+      <!-- PORTAL (DASHBOARD) -->
+      <div id="portal" class="hidden">
+        <!-- Estrutura principal do dashboard seguindo o padrão da landing page -->
+        <div class="dashboard-container">
+          <!-- HEADER DO DASHBOARD -->
+          <header class="dashboard-header">
+            <div class="header-content">
+              <div class="logo-area">
+                <img src="e2e_favicon_32x32.png" alt="Logo E2E Invest" class="logo-circular">
+                <span class="logo-title">E2E Invest</span>
+              </div>
+              <div class="user-info">
+                <span class="username-premium">
+                  <span id="username" class="username"></span>
+                  <span class="premium-badge">Premium</span>
+                </span>
+                <div id="saldoBloco" class="saldo-bloco"></div>
+              </div>
+              <div class="header-buttons">
+                <button class="btn-acao" id="btnTransferencia" title="Transferência">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="m24.001,4c0,.501-.195.972-.55,1.326l-2.224,2.36c-.196.208-.462.314-.728.314-.246,0-.492-.09-.686-.272-.402-.378-.421-1.011-.042-1.414l1.238-1.314h-9.011c-3.86,0-7,3.14-7,7,0,.592.074,1.182.221,1.75.138.535-.184,1.08-.719,1.218-.084.021-.167.032-.25.032-.446,0-.852-.299-.968-.75-.188-.732-.284-1.489-.284-2.25C3,7.038,7.038,3,12,3h9.011l-1.238-1.314c-.379-.402-.36-1.035.042-1.414.402-.377,1.034-.36,1.413.042l2.244,2.382c.334.332.529.803.529,1.304Zm-4.503,5.032c-.535.138-.856.684-.718,1.218.146.566.22,1.155.22,1.75,0,3.86-3.141,7-7,7H2.99l1.238-1.314c.378-.402.36-1.035-.042-1.414-.4-.378-1.034-.36-1.414.042l-2.223,2.36c-.73.73-.73,1.919-.021,2.629l2.244,2.381c.197.209.462.314.728.314.246,0,.493-.09.686-.272.402-.379.421-1.012.042-1.414l-1.239-1.314h9.011c4.963,0,9-4.038,9-9,0-.764-.096-1.521-.284-2.25-.138-.535-.684-.854-1.218-.718Zm-7.498-2.331c-.441,0-.8.359-.8.8v.7h-.327c-.646,0-1.256.287-1.672.786-.414.499-.583,1.156-.463,1.804.159.853.887,1.55,1.812,1.735l2.688.538c.268.054.462.291.462.563,0,.316-.258.574-.574.574h-2.204c-.223,0-.434-.107-.564-.287-.142-.193-.433-.213-.552-.213-.381,0-.628.246-.732.477-.131.291-.086.604.122.84.438.498,1.066.783,1.727.783h.278v.7c0,.441.358.8.8.8s.8-.359.8-.8v-.7h.326c.647,0,1.257-.287,1.673-.787.414-.499.583-1.156.463-1.803-.16-.853-.889-1.551-1.812-1.735l-2.688-.539c-.267-.054-.461-.291-.461-.562,0-.316.257-.574.573-.574h2.204c.223,0,.434.107.564.287.142.193.433.213.552.213.381,0,.628-.246.732-.476.132-.291.086-.605-.121-.841-.438-.497-1.067-.782-1.728-.782h-.277v-.7c0-.441-.358-.8-.8-.8Z" />
+                  </svg>
+                </button>
+
+                <button class="btn-acao btn-sair" id="btnSair" title="Sair">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16 17v1a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1" fill="none"
+                      stroke="currentColor" stroke-width="2" />
+                    <path d="M21 12H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M17 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </header>
+
+          <!-- CORPO PRINCIPAL DO DASHBOARD -->
+          <main class="dashboard-main">
+            <div class="dashboard-content">
+              <!-- Seção de Carteira e Book -->
+              <div class="dashboard-section">
+                <div class="flex">
+                  <div class="card card-carteira" style="flex: 1">
+                    <h3>Carteira</h3>
+                    <div style="margin-bottom:8px; color:#00ffa3; font-weight:bold;">Usuário: <span
+                        id="usernameCarteira"></span></div>
+                    <!-- Adicionado scroll fixo para tabela da Carteira -->
+                    <div class="scrollable-carteira-align">
+                      <table id="carteira"
+                        style="width:100%; background:#232a3d; color:#fff; border-radius:12px; border-collapse:separate; border-spacing:0;">
+                        <thead>
+                          <tr>
+                            <th
+                              style="background:#232a3d; color:#00ffa3; border-bottom:2px solid #00ffa3; font-weight:bold;">
+                              Empresas</th>
+                            <th
+                              style="background:#232a3d; color:#00ffa3; border-bottom:2px solid #00ffa3; font-weight:bold;">
+                              Ativos</th>
+                            <th
+                              style="background:#232a3d; color:#00ffa3; border-bottom:2px solid #00ffa3; font-weight:bold;">
+                              Quantidades</th>
+                            <th
+                              style="background:#232a3d; color:#00ffa3; border-bottom:2px solid #00ffa3; font-weight:bold;">
+                              Valor Médio (R$)</th>
+                            <th
+                              style="background:#232a3d; color:#00ffa3; border-bottom:2px solid #00ffa3; font-weight:bold;">
+                              Valor Total (R$)</th>
+                            <th
+                              style="background:#232a3d; color:#00ffa3; border-bottom:2px solid #00ffa3; font-weight:bold;">
+                              Lucro/Prejuízo</th>
+                            <th
+                              style="background:#232a3d; color:#00ffa3; border-bottom:2px solid #00ffa3; font-weight:bold;">
+                              Variação (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody id="carteiraBody"></tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="card card-book" style="flex: 1">
+                    <h3>Book de Ofertas (B3)</h3>
+                    <div class="scrollable">
+                      <table id="book">
+                        <thead>
+                          <tr>
+                            <th>Ativo</th>
+                            <th>Preço Atual (R$)</th>
+                            <th>Variação (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seção de Boleta e Gráfico -->
+              <div class="dashboard-section">
+                <div class="boleta-grafico-container">
+                  <!-- Boleta Profissional -->
+                  <div class="boleta-column">
+                    <div class="boleta-profissional">
+                      <!-- Header da Boleta -->
+                      <div class="boleta-header">
+                        <div class="boleta-title">
+                          <h2>BOLETA DE COMPRA E VENDA</h2>
+                          <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span>Pronto para operar</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Campos de Entrada -->
+                      <div class="boleta-inputs">
+                        <div class="input-group">
+                          <label for="ativo">ATIVO</label>
+                          <div class="select-wrapper">
+                            <select id="ativo" class="boleta-select">
+                              <option value="PETR4">PETR4</option>
+                              <option value="VALE3">VALE3</option>
+                              <option value="ITUB4">ITUB4</option>
+                              <option value="BBDC4">BBDC4</option>
+                              <option value="ABEV3">ABEV3</option>
+                              <option value="WEGE3">WEGE3</option>
+                              <option value="RENT3">RENT3</option>
+                              <option value="LREN3">LREN3</option>
+                            </select>
+                            <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                              stroke="currentColor" stroke-width="2">
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                          </div>
+                        </div>
+
+                        <div class="input-group">
+                          <label for="quantidade">QUANTIDADE</label>
+                          <input type="number" id="quantidade" class="boleta-input" placeholder="100" min="100"
+                            step="100" />
+                        </div>
+
+                        <div class="input-group">
+                          <label for="valor">PREÇO (R$)</label>
+                          <input type="text" id="valor" class="boleta-input" placeholder="0,00" />
+                        </div>
+                      </div>
+
+                      <!-- Campos extras para Stop Loss e Take Profit -->
+                      <div id="camposExtras" class="boleta-extras hidden">
+                        <div class="input-group" id="stopLossField">
+                          <label for="stopLossValor">STOP LOSS (R$)</label>
+                          <input type="text" id="stopLossValor" class="boleta-input" placeholder="0,00" />
+                        </div>
+                        <div class="input-group" id="takeProfitField">
+                          <label for="takeProfitValor">TAKE PROFIT (R$)</label>
+                          <input type="text" id="takeProfitValor" class="boleta-input" placeholder="0,00" />
+                        </div>
+                      </div>
+
+                      <!-- Resumo Financeiro -->
+                      <div class="boleta-summary">
+                        <div class="summary-item">
+                          <span class="summary-label">Valor Total:</span>
+                          <span class="summary-value" id="valorTotal">R$ 0,00</span>
+                        </div>
+                        <div class="summary-item">
+                          <span class="summary-label">Taxas:</span>
+                          <span class="summary-value" id="taxas">R$ 0,00</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-item total">
+                          <span class="summary-label">Total + Taxas:</span>
+                          <span class="summary-value" id="totalComTaxas">R$ 0,00</span>
+                        </div>
+                      </div>
+
+                      <!-- Botões de Ação -->
+                      <div class="boleta-actions">
+                        <button type="button" id="btnCompra" class="btn-buy">
+                          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                          <span>COMPRAR</span>
+                        </button>
+                        <button type="button" id="btnVenda" class="btn-sell">
+                          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <polyline points="6 15 12 9 18 15"></polyline>
+                          </svg>
+                          <span>VENDER</span>
+                        </button>
+                      </div>
+
+                      <!-- Opções Avançadas -->
+                      <div class="boleta-options">
+                        <label class="option-checkbox">
+                          <input type="checkbox" id="stopLoss" />
+                          <span class="checkmark"></span>
+                          <span class="option-label">Stop Loss</span>
+                        </label>
+                        <label class="option-checkbox">
+                          <input type="checkbox" id="takeProfit" />
+                          <span class="checkmark"></span>
+                          <span class="option-label">Take Profit</span>
+                        </label>
+                      </div>
+
+                      <!-- Mensagem de Status -->
+                      <div id="mensagem" class="boleta-message"></div>
+                    </div>
+                  </div>
+
+                  <!-- Gráfico -->
+                  <div class="grafico-column">
+                    <div class="card">
+                      <h3>Análise Técnica</h3>
+                      <div class="chart-controls">
+                        <div class="chart-mode-toggle">
+                          <button id="btnCandlestick" class="chart-mode-btn active">Candlestick</button>
+                          <button id="btnLine" class="chart-mode-btn">Linha</button>
+                        </div>
+                        <div class="chart-timeframe">
+                          <select id="timeframeSelect" class="form-select">
+                            <option value="1D">1D</option>
+                            <option value="1W">1W</option>
+                            <option value="1M">1M</option>
+                            <option value="3M">3M</option>
+                            <option value="6M">6M</option>
+                            <option value="1Y">1Y</option>
+                          </select>
+                        </div>
+                      </div>
+                      <!-- TradingView Widget BEGIN -->
+                      <div id="tradingview_chart" class="tradingview-chart"></div>
+                      <!-- TradingView Widget END -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seção de Extrato -->
+              <div class="dashboard-section">
+                <div class="card">
+                  <div style="position:relative;display:flex;align-items:center;justify-content:space-between;">
+                    <h3 style="margin:0;">Extrato de Operações</h3>
+                    <div class="export-dropdown" id="exportExtratoDropdown">
+                      <button class="export-dropdown-btn" id="exportExtratoBtn" title="Exportar">
+                        <span style="font-size:1.15em;">⭳</span> Exportar
+                      </button>
+                      <ul class="export-dropdown-list" id="exportExtratoList">
+                        <li data-export="xlsx">Exportar para XLSX</li>
+                        <li data-export="json">Exportar para JSON</li>
+                        <li data-export="pdf">Exportar para PDF</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <table id="extrato">
+                    <thead>
+                      <tr>
+                        <th>Data/Hora</th>
+                        <th>Tipo</th>
+                        <th>Ativo</th>
+                        <th>Qtd</th>
+                        <th>Preço Unit.</th>
+                        <th>Total (R$)</th>
+                        <th>Taxas</th>
+                        <th>L/P (R$)</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Seção de Book de Ordens -->
+              <div class="dashboard-section">
+                <div class="card">
+                  <h3>Book de Ordens</h3>
+                  <table id="ordens">
+                    <thead>
+                      <tr>
+                        <th>Tipo</th>
+                        <th>Ativo</th>
+                        <th>Qtd</th>
+                        <th>Valor</th>
+                        <th>Cotação</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <!-- RODAPÉ DO DASHBOARD -->
+          <footer class="dashboard-footer">
+            <div class="footer-content">
+              <p>© 2025 E2E Invest Code Brokers - Todos os direitos reservados.</p>
+              <p><span style="color:#00ffa3; font-weight:600;">Desenvolvido por: Heraldo, Bruno, Fernanda, Hugo, Samuel,
+                  Uriel</span></p>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRANSFERÊNCIA -->
+    <div id="transferSection" class="card hidden">
+      <h2>Transferência</h2>
+      <div class="form-field">
+        <label for="banco" class="form-label">Banco</label>
+        <input type="text" id="banco" class="form-input" placeholder="Ex: Banco do Brasil" minlength="3" />
+      </div>
+      <div class="form-field">
+        <label for="agencia" class="form-label">Agência</label>
+        <input type="text" id="agencia" class="form-input" placeholder="Ex: 1234" pattern="\d{3,5}" />
+      </div>
+      <div class="form-field">
+        <label for="contaDestino" class="form-label">Conta destino</label>
+        <input type="text" id="contaDestino" class="form-input" placeholder="Ex: 12345678" pattern="\d{4,10}" />
+      </div>
+      <div class="form-field">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input type="text" id="cidade" class="form-input" placeholder="Ex: São Paulo" minlength="2" />
+      </div>
+      <div class="form-field">
+        <label for="estado" class="form-label">Estado (Sigla)</label>
+        <input type="text" id="estado" class="form-input" placeholder="Ex: SP" maxlength="2" pattern="[A-Z]{2}" />
+      </div>
+      <div class="form-field">
+        <label for="valorTransferencia" class="form-label">Valor</label>
+        <input type="number" id="valorTransferencia" class="form-input" placeholder="Ex: 1000.00" min="0.01"
+          step="0.01" />
+      </div>
+      <div class="form-field">
+        <label class="form-checkbox">
+          <input type="checkbox" id="agendar">
+          <span class="checkmark"></span>
+          <span>Agendar transferência?</span>
+        </label>
+      </div>
+      <div id="agendamentoCampos" class="hidden">
+        <div class="form-field">
+          <label for="dataHora" class="form-label">Data e hora</label>
+          <input type="datetime-local" id="dataHora" class="form-input" />
+        </div>
+        <div class="form-field">
+          <label for="repetirMes" class="form-label">Repetir no mês seguinte?</label>
+          <select id="repetirMes" class="form-select">
+            <option value="nao">Não</option>
+            <option value="sim">Sim</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-padrao" onclick="realizarTransferencia()">Transferir</button>
+      <p id="transferMsg" class="mensagem"></p>
+      <button class="btn-voltar" onclick="voltarPortal()">← Voltar</button>
+      <h3>Agendamentos</h3>
+      <table id="tabelaAgendamentos">
+        <thead>
+          <tr>
+            <th>Banco</th>
+            <th>Agência</th>
+            <th>Conta</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Valor</th>
+            <th>Data/Hora</th>
+            <th>Repetir</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <style>
+      .link-animado {
+        color: #8e7fff;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s;
+        cursor: pointer;
+      }
+
+      .link-animado::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #8e7fff;
+        transition: width 0.25s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+
+      .link-animado:hover {
+        color: #6c4cff;
+      }
+
+      .link-animado:hover::after {
+        width: 100%;
+      }
+
+      .input-olho-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .input-olho {
+        width: 100%;
+        padding: 12px 40px 12px 10px;
+        border-radius: 12px;
+        border: 1.5px solid #e0e0e0;
+        background: #f7f7fa;
+        color: #232a3d;
+        font-size: 1.05rem;
+        margin-bottom: 0;
+        outline: none;
+        transition: border 0.2s, background 0.2s;
+      }
+
+      .input-olho:focus {
+        border-color: #8e7fff;
+        background: #f7f7fa;
+      }
+
+      .input-olho::placeholder {
+        color: #888;
+        opacity: 1;
+      }
+
+      .olho-icone {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        z-index: 2;
+        color: #8e7fff;
+        background: none;
+        border: none;
+        padding: 0;
+        outline: none;
+      }
+
+      .olho-icone svg {
+        pointer-events: none;
+      }
+    </style>
+    <style>
+      .link-animado {
+        color: #8e7fff;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s;
+        cursor: pointer;
+      }
+
+      .link-animado::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #8e7fff;
+        transition: width 0.25s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+
+      .link-animado:hover {
+        color: #6c4cff;
+      }
+
+      .link-animado:hover::after {
+        width: 100%;
+      }
+
+      /* Campos de input padrão (login/cadastro) - Visual Tecnológico */
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="tel"],
+      input[type="number"] {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 2px solid #2a2f3f;
+        background: linear-gradient(135deg, #1e2329 0%, #2a2f3f 100%);
+        color: #ffffff;
+        font-size: 1.05rem;
+        margin-bottom: 0;
+        outline: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        position: relative;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus,
+      input[type="tel"]:focus,
+      input[type="number"]:focus {
+        border-color: #00ffa3;
+        background: linear-gradient(135deg, #1a1f2e 0%, #252a3a 100%);
+        box-shadow: 0 0 20px rgba(0, 255, 163, 0.3), 0 4px 16px rgba(0, 0, 0, 0.4);
+        transform: translateY(-1px);
+      }
+
+      input[type="text"]::placeholder,
+      input[type="email"]::placeholder,
+      input[type="password"]::placeholder,
+      input[type="tel"]::placeholder,
+      input[type="number"]::placeholder {
+        color: #8a8a8a;
+        opacity: 1;
+        font-weight: 400;
+      }
+
+      /* Efeito especial para campo de email */
+      input[type="email"] {
+        border-color: #00d4ff;
+        background: linear-gradient(135deg, #1e2329 0%, #2a2f3f 100%);
+        position: relative;
+      }
+
+      input[type="email"]:focus {
+        border-color: #00ffa3;
+        background: linear-gradient(135deg, #1a1f2e 0%, #252a3a 100%);
+        box-shadow: 0 0 25px rgba(0, 255, 163, 0.4), 0 4px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      input[type="email"]:valid {
+        border-color: #00ffa3;
+        background: linear-gradient(135deg, #1a1f2e 0%, #252a3a 100%);
+      }
+
+      /* Estilos para mensagens de validação */
+      .campo-erro {
+        color: #ff4757;
+        font-size: 0.9rem;
+        margin-top: 6px;
+        padding: 4px 8px;
+        background: rgba(255, 71, 87, 0.1);
+        border-radius: 6px;
+        border-left: 3px solid #ff4757;
+        animation: slideIn 0.3s ease;
+      }
+
+      .campo-sucesso {
+        color: #00ffa3;
+        font-size: 0.9rem;
+        margin-top: 6px;
+        padding: 4px 8px;
+        background: rgba(0, 255, 163, 0.1);
+        border-radius: 6px;
+        border-left: 3px solid #00ffa3;
+        animation: slideIn 0.3s ease;
+      }
+
+      .campo-invalido {
+        border-color: #ff4757 !important;
+        box-shadow: 0 0 15px rgba(255, 71, 87, 0.3) !important;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script src="script.js"></script>
+    <script src="validacoes.js"></script>
+
+    <script>
+      // Alternar visualização da senha para login e cadastro
+      document.addEventListener('DOMContentLoaded', function () {
+      });
+    </script>
+    <script>
+      // Inicializa o fundo de partículas igual à landing page
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.particlesJS) {
+          // Configuração das partículas igual à landing page
+          particlesJS('particles-js', {
+            particles: {
+              number: { value: 60, density: { enable: true, value_area: 900 } },
+              color: { value: ['#a259ff', '#00ffa3', '#fff'] },
+              shape: { type: 'circle' },
+              opacity: { value: 0.18, random: true },
+              size: { value: 4, random: true },
+              line_linked: { enable: true, distance: 120, color: '#a259ff', opacity: 0.12, width: 1 },
+              move: { enable: true, speed: 1.2, direction: 'none', out_mode: 'out' }
+            },
+            interactivity: {
+              detect_on: 'canvas',
+              events: { onhover: { enable: false }, onclick: { enable: false } },
+              modes: {}
+            },
+            retina_detect: true
+          });
+        }
+      });
+    </script>

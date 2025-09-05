@@ -1,0 +1,30 @@
+{
+  "name": "e2e-code-brokers",
+  "version": "1.0.0",
+  "description": "Plataforma de Trading Profissional - E2E Invest Brokers",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 8000",
+    "dev": "npx live-server --port=8000 --open=/landing.html"
+  },
+  "keywords": [
+    "trading",
+    "broker",
+    "finance",
+    "e2e",
+    "testing",
+    "home-broker",
+    "investment",
+    "b3"
+  ],
+  "author": "E2E Invest Brokers Squad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/E2E-Code-Brokers.git"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "live-server": "^1.2.2"
+  }
+}

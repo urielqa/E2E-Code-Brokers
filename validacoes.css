@@ -1,0 +1,356 @@
+/* ===== ESTILOS PARA VALIDAÇÕES EM TEMPO REAL ===== */
+
+/* Estilos para campos com erro */
+.form-input.error {
+    border-color: #ff4757 !important;
+    box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.2) !important;
+    background-color: rgba(255, 71, 87, 0.05) !important;
+}
+
+/* Estilos para campos com sucesso */
+.form-input.success {
+    border-color: #00ffa3 !important;
+    box-shadow: 0 0 0 2px rgba(0, 255, 163, 0.2) !important;
+    background-color: rgba(0, 255, 163, 0.05) !important;
+}
+
+/* Mensagens de erro */
+.field-error {
+    color: #ff4757;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: slideInError 0.3s ease-out;
+}
+
+.field-error::before {
+    content: "⚠️";
+    font-size: 0.75rem;
+}
+
+/* Mensagens de sucesso */
+.field-success {
+    color: #00ffa3;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: slideInSuccess 0.3s ease-out;
+}
+
+.field-success::before {
+    content: "✅";
+    font-size: 0.75rem;
+}
+
+/* Animações */
+@keyframes slideInError {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInSuccess {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para campos obrigatórios */
+.form-label::after {
+    content: " *";
+    color: #ff4757;
+    font-weight: bold;
+}
+
+/* Estilos para campos válidos */
+.form-field:has(.form-input.success) .form-label::after {
+    content: " ✓";
+    color: #00ffa3;
+}
+
+/* Estilos para campos com foco */
+.form-input:focus {
+    outline: none;
+    border-color: #00ffa3;
+    box-shadow: 0 0 0 3px rgba(0, 255, 163, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Estilos para campos desabilitados */
+.form-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Estilos para indicador de progresso */
+.form-field {
+    position: relative;
+}
+
+.form-field::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffa3, #00cfff);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.form-field:has(.form-input.success)::after {
+    width: 100%;
+}
+
+.form-field:has(.form-input.error)::after {
+    width: 100%;
+    background: #ff4757;
+}
+
+/* Estilos para tooltip de validação */
+.form-input[title] {
+    position: relative;
+}
+
+.form-input[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1d23;
+    color: #e2e8f0;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2d3748;
+}
+
+/* Estilos para contador de caracteres */
+.char-counter {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.char-counter.warning {
+    color: #f59e0b;
+}
+
+.char-counter.error {
+    color: #ff4757;
+}
+
+/* Estilos para indicador de força da senha */
+.password-strength {
+    margin-top: 8px;
+    height: 6px;
+    background: #2d3748;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.password-strength-bar {
+    height: 100%;
+    transition: all 0.4s ease;
+    border-radius: 3px;
+    position: relative;
+}
+
+.password-strength-bar.weak {
+    width: 25%;
+    background: linear-gradient(90deg, #ff4757, #ff6b7a);
+    box-shadow: 0 0 8px rgba(255, 71, 87, 0.4);
+}
+
+.password-strength-bar.fair {
+    width: 50%;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.password-strength-bar.good {
+    width: 75%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.password-strength-bar.strong {
+    width: 100%;
+    background: linear-gradient(90deg, #00ffa3, #34d399);
+    box-shadow: 0 0 8px rgba(0, 255, 163, 0.4);
+}
+
+.password-strength-text {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.password-strength-text.weak {
+    color: #ff4757;
+}
+
+.password-strength-text.fair {
+    color: #f59e0b;
+}
+
+.password-strength-text.good {
+    color: #3b82f6;
+}
+
+.password-strength-text.strong {
+    color: #00ffa3;
+}
+
+/* Estilos para validação de CPF */
+.cpf-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 0.875rem;
+}
+
+.cpf-status.valid {
+    color: #00ffa3;
+}
+
+.cpf-status.invalid {
+    color: #ff4757;
+}
+
+.cpf-status.valid::before {
+    content: "✅";
+}
+
+.cpf-status.invalid::before {
+    content: "❌";
+}
+
+/* Estilos para validação de email */
+.email-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 0.875rem;
+}
+
+.email-status.valid {
+    color: #00ffa3;
+}
+
+.email-status.invalid {
+    color: #ff4757;
+}
+
+.email-status.valid::before {
+    content: "✅";
+}
+
+.email-status.invalid::before {
+    content: "❌";
+}
+
+/* Estilos para validação de WhatsApp */
+.whatsapp-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 0.875rem;
+}
+
+.whatsapp-status.valid {
+    color: #00ffa3;
+}
+
+.whatsapp-status.invalid {
+    color: #ff4757;
+}
+
+.whatsapp-status.valid::before {
+    content: "✅";
+}
+
+.whatsapp-status.invalid::before {
+    content: "❌";
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .field-error,
+    .field-success {
+        font-size: 0.8rem;
+    }
+    
+    .form-input[title]:hover::after {
+        display: none;
+    }
+}
+
+/* Estilos para modo escuro */
+@media (prefers-color-scheme: dark) {
+    .form-input.error {
+        background-color: rgba(255, 71, 87, 0.1) !important;
+    }
+    
+    .form-input.success {
+        background-color: rgba(0, 255, 163, 0.1) !important;
+    }
+}
+
+/* Estilos para acessibilidade */
+.form-input:focus-visible {
+    outline: 2px solid #00ffa3;
+    outline-offset: 2px;
+}
+
+.field-error:focus,
+.field-success:focus {
+    outline: 1px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* Estilos para animação de carregamento */
+.form-field.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #2d3748;
+    border-top: 2px solid #00ffa3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}

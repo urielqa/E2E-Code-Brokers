@@ -1,0 +1,87 @@
+/* Dropdown de intervalo de tempo para gráfico (estilo TradingView/corretoras) */
+.timeframe-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+  z-index: 20;
+}
+.timeframe-dropdown-btn {
+  background: #181c2f;
+  color: #00ffa3;
+  border: 2px solid #00ffa3;
+  border-radius: 10px;
+  padding: 10px 22px 10px 16px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 12px #00ffa344;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.timeframe-dropdown-btn:hover, .timeframe-dropdown-btn:focus {
+  background: #232a3d;
+  color: #181c2f;
+  box-shadow: 0 0 18px #00ffa3, 0 0 8px #00cfff;
+  outline: none;
+}
+.timeframe-dropdown-list {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 110%;
+  background: #181c2f;
+  border: 1.5px solid #00ffa3;
+  border-radius: 12px;
+  min-width: 220px;
+  box-shadow: 0 0 18px #00ffa344;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: hidden;
+  z-index: 30;
+}
+.timeframe-dropdown.open .timeframe-dropdown-list {
+  display: block;
+}
+.timeframe-dropdown-list-group {
+  padding: 8px 0 0 0;
+  border-top: 1px solid #00ffa322;
+  margin-top: 0;
+}
+.timeframe-dropdown-list-group:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.timeframe-dropdown-list li {
+  padding: 12px 22px;
+  color: #00ffa3;
+  background: #181c2f;
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 0;
+}
+.timeframe-dropdown-list li.selected {
+  background: #00ffa3;
+  color: #181c2f;
+  font-weight: bold;
+}
+.timeframe-dropdown-list li:hover {
+  background: #00ffa3;
+  color: #181c2f;
+}
+@media (max-width: 700px) {
+  .timeframe-dropdown-list {
+    min-width: 140px;
+  }
+  .timeframe-dropdown-btn {
+    font-size: 0.98rem;
+    padding: 8px 12px 8px 10px;
+  }
+  .timeframe-dropdown-list li {
+    font-size: 0.98rem;
+    padding: 10px 12px;
+  }
+}
